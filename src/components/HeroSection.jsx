@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 const HeroSection = () => {
   return (
     <>
-      <div className="bg-[#F8CE35]">
-        <h2 className="p-[2rem_2.5rem_3rem_0rem] text-center font-[poppins] font-extrabold">
+      <div className="mt-[-7rem] bg-[#F8CE35]">
+        <h2 className="p-[10rem_2.5rem_2rem_0rem] text-center font-[poppins] font-extrabold">
           Craft Soft Sparkling Made with Joy and BHANG.
         </h2>
         <div className="mb-[-3rem] flex items-center justify-center">
