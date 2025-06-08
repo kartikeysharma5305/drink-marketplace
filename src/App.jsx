@@ -12,12 +12,15 @@ import Cart from "./pages/Cart";
 import ProductLandingPage from "./components/ProductLandingPage";
 import LogIn from "./components/LogIn";
 
+// Main App component
 function App() {
   return (
+    // Provide Redux store to the app
     <Provider store={store}>
       <HeaderInfiniteCarousel />
       <Header />
       <Routes>
+        {/* Home page */}
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/about" element={<About />} />

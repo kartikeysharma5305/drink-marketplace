@@ -9,6 +9,8 @@ import can8 from "../assets/images/can8.png";
 import can9 from "../assets/images/can9.png";
 import can10 from "../assets/images/can10.png";
 
+// Data of all the products on the website
+// with their ( id , title , discount , price , description , image , category)
 const allProducts = [
   {
     id: 1,

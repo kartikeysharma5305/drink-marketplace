@@ -1,6 +1,8 @@
 import React from "react";
 
+// InfiniteSlider component displays a horizontally scrolling set of items with infinite loop effect
 const InfiniteSlider = ({ sliderText }) => {
+  // Define the slider items, each with a unique class for animation delay
   const items = [
     { id: 1, className: "item1", text: sliderText },
     { id: 2, className: "item2", text: sliderText },
@@ -14,8 +16,9 @@ const InfiniteSlider = ({ sliderText }) => {
 
   return (
     <>
-      {/* Scoped styles */}
+      {/* Scoped styles for the InfiniteSlider component */}
       <style>{`
+        /* Ensure all elements use border-box sizing and reset margin */
         .infinite-slider *,
         .infinite-slider *::before,
         .infinite-slider *::after {
@@ -26,19 +29,21 @@ const InfiniteSlider = ({ sliderText }) => {
           margin: 0;
         }
 
+        /* Keyframes for sliding animation: moves items to the left */
         @keyframes scrollLeft {
           to {
             left: -200px;
           }
         }
 
+        /* Base styles for each slider item */
         .infinite-slider .item {
           width: 200px;
           height: 150px;
           background-color: #23022E;
           border-radius: 6px;
           position: absolute;
-          left: max(calc(300px * 8), 100%);
+          left: max(calc(300px * 8), 100%); /* Start position off-screen to the right */
           animation-name: scrollLeft;
           animation-duration: 30s;
           animation-timing-function: linear;
@@ -52,6 +57,7 @@ const InfiniteSlider = ({ sliderText }) => {
           font-weight: 600;
         }
 
+        /* Assign different animation delays to each item for even spacing */
         .infinite-slider .item1 {
           animation-delay: calc(30s / 8 * (8 - 1) * -1);
         }
@@ -78,8 +84,9 @@ const InfiniteSlider = ({ sliderText }) => {
         }
       `}</style>
 
-      {/* Component markup */}
+      {/* Main slider container with relative positioning and overflow hidden */}
       <div className="infinite-slider relative mx-auto mt-[5rem] h-[150px] w-[90%] max-w-[1536px] overflow-hidden">
+        {/* Render each slider item with its unique class and text */}
         {items.map((item) => (
           <div
             key={item.id}

@@ -1,3 +1,4 @@
+// Data of FAOs question and answers
 const faqsData = [
   {
     question: "What is an FAQ section?",

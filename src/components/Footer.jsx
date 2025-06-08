@@ -1,4 +1,3 @@
-import React from "react";
 import svgBackground from "../assets/images/backgroundSvg";
 import footerDivider from "../assets/images/footer-divider.png";
 import { Link } from "react-router-dom";
@@ -6,17 +5,21 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
+      {/* Decorative divider image above the footer */}
       <img className="mt-6 text-white" src={footerDivider} alt="" />
 
+      {/* Main footer section with background SVG */}
       <footer
         style={{ backgroundImage: svgBackground }}
         className="bg-[#23022E] px-5 py-10"
       >
+        {/* Newsletter subscription form */}
         <div className="p-8">
           <h2 className="mb-12 font-[poppins] text-lg font-bold text-white">
             Subscribe to Our Newsletter
           </h2>
           <form className="space-y-4">
+            {/* Email input field */}
             <div>
               <label
                 htmlFor="email"
@@ -32,6 +35,7 @@ const Footer = () => {
                 className="w-full rounded-full border-4 border-white bg-transparent p-4 font-[Playwrite_HU] text-[1.5rem] font-bold text-white placeholder-white hover:border-[#F8CE35]"
               />
             </div>
+            {/* Checkbox and submit button */}
             <div className="mb-6 flex items-center justify-between">
               <div>
                 <input
@@ -48,6 +52,7 @@ const Footer = () => {
                 </label>
               </div>
 
+              {/* Submit button for the form */}
               <button
                 type="submit"
                 className="w-[22rem] cursor-pointer rounded-full bg-[#F8CE35] px-8 py-4 font-[Playwrite_HU] text-[1.5rem] font-bold text-[#23022E] hover:bg-white"
@@ -58,17 +63,21 @@ const Footer = () => {
           </form>
         </div>
 
+        {/* Footer navigation and contact info */}
         <div className="container mx-auto flex flex-col justify-between p-8 font-bold text-white md:flex-row">
+          {/* Brand and main navigation links */}
           <div className="mb-6 md:mb-0">
             <h1 className="mb-4 font-[playwrite_HU] text-2xl font-bold text-yellow-400">
               Zigh
             </h1>
             <ul>
               <li className="mb-2">
+                {/* Internal link to Shop page */}
                 <Link to="/shop" className="hover:underline">
                   Shop
                 </Link>
               </li>
+              {/* Placeholder links for other sections */}
               <li className="mb-2">
                 <a href="#" className="hover:underline">
                   Subscription
@@ -91,6 +100,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+          {/* Policy and legal links */}
           <div className="mt-12 mb-6 md:mb-0">
             <ul>
               <li className="mb-2">
@@ -120,6 +130,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+          {/* Contact information */}
           <div className="mt-12 mb-6 md:mb-0">
             <p className="mb-2">info@mysite.com</p>
             <p className="mb-2">123-456-7890</p>
@@ -127,6 +138,7 @@ const Footer = () => {
             <p className="mb-2">San Francisco, CA 94158</p>
           </div>
 
+          {/* Social media icons */}
           <div className="mt-12 mr-12 flex space-x-4">
             <a
               href="#"
@@ -148,6 +160,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
+        {/* Copyright notice */}
         <h1 className="mb-0 pl-8 font-[poppins] font-bold text-white">
           © 2025 by Zigh.com
         </h1>

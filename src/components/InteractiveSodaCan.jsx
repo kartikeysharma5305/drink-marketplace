@@ -2,21 +2,27 @@ import React, { useEffect, useRef } from "react";
 import heroCan from "../assets/images/hero-section-can.avif";
 import hempLeaf from "../assets/images/hemp-leaf.png";
 
+// InteractiveSodaCan component displays a soda can with interactive parallax effects
 const InteractiveSodaCan = () => {
+  // Refs for DOM elements to apply transformations
   const canRef = useRef(null);
   const bgRef = useRef(null);
   const hempLeafRef = useRef(null);
 
   useEffect(() => {
+    // Handles mouse movement to create a parallax effect
     const handleMouseMove = (e) => {
       const { clientX, clientY } = e;
       const { innerWidth, innerHeight } = window;
+      // Calculate the center of the viewport
       const centerX = innerWidth / 2;
       const centerY = innerHeight / 2;
 
+      // Calculate normalized movement values (-1 to 1)
       const moveX = (clientX - centerX) / centerX;
       const moveY = (clientY - centerY) / centerY;
 
+      // Move the can image more than the background and hemp leaf for depth
       if (canRef.current) {
         canRef.current.style.transform = `translate(${moveX * 30}px, ${moveY * 30}px) `;
       }
@@ -28,7 +34,9 @@ const InteractiveSodaCan = () => {
       }
     };
 
+    // Attach mousemove event listener
     window.addEventListener("mousemove", handleMouseMove);
+    // Cleanup event listener on unmount
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
@@ -36,17 +44,17 @@ const InteractiveSodaCan = () => {
     <>
       <div
         className="relative z-0 flex h-screen items-center justify-center"
-        style={{ transform: "rotate(-10deg)" }}
+        style={{ transform: "rotate(-10deg)" }} // Slight rotation for visual interest
       >
-        {/* SVG Background */}
+        {/* SVG Background shape behind the can */}
         <svg
           ref={bgRef}
           preserveAspectRatio="none"
           data-bbox="0 0 564.781 1160"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 564.781 1160"
-          height="500" // Adjusted to match h-72 (72 * 4 = 288px, scaled up)
-          width="250" // Adjusted to match w-40 (40 * 4 = 160px, scaled up)
+          height="500" // SVG height
+          width="250" // SVG width
           data-type="color"
           role="presentation"
           aria-hidden="true"
@@ -64,7 +72,7 @@ const InteractiveSodaCan = () => {
           </g>
         </svg>
 
-        {/* Soda Can */}
+        {/* Main soda can image */}
         <img
           ref={canRef}
           src={heroCan}
@@ -73,6 +81,7 @@ const InteractiveSodaCan = () => {
         />
       </div>
 
+      {/* Decorative hemp leaf image, positioned absolutely */}
       <img
         ref={hempLeafRef}
         className="absolute right-0 z-0 mr-[10rem] mb-[15rem] w-[20rem]"

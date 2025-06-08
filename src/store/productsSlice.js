@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import allProducts from "../store/allProducts";
 
+// Redux slice to render all the products
 const productSlice = createSlice({
   name: "product",
   initialState: { products: allProducts },

@@ -6,10 +6,13 @@ import InfiniteSlider from "./InfiniteSlider";
 const ContactUs = () => {
   return (
     <div className="bg-[#F8CE35]">
+      {/* Decorative upward divider image */}
       <img src={upwardDivider} alt="" />
 
+      {/* Animated slider displaying "Contact Us" */}
       <InfiniteSlider sliderText={"Contact Us"} />
 
+      {/* Section title and description */}
       <div>
         <h1 className="mt-10 p-4 text-center font-[Playwrite_HU] font-bold">
           Get in Touch
@@ -21,8 +24,11 @@ const ContactUs = () => {
         </p>
       </div>
 
+      {/* Contact form */}
       <form className="w-full p-8 lg:p-20">
+        {/* Name fields in a responsive flex row */}
         <div className="-mx-3 mb-6 flex flex-wrap">
+          {/* First name input */}
           <div className="mb-6 w-full px-3 md:mb-0 md:w-1/2">
             <label
               className="mb-2 block font-[poppins] text-xs font-bold tracking-wide text-[#23022E] uppercase"
@@ -37,6 +43,7 @@ const ContactUs = () => {
               placeholder=""
             />
           </div>
+          {/* Last name input */}
           <div className="w-full px-3 md:w-1/2">
             <label
               className="mb-2 block font-[poppins] text-xs font-bold tracking-wide text-[#23022E] uppercase"
@@ -52,6 +59,7 @@ const ContactUs = () => {
             />
           </div>
         </div>
+        {/* Email input field */}
         <div className="mb-6">
           <label
             className="mb-2 block font-[poppins] text-xs font-bold tracking-wide text-[#23022E] uppercase"
@@ -66,6 +74,7 @@ const ContactUs = () => {
             placeholder=""
           />
         </div>
+        {/* Message textarea field */}
         <div className="mb-6">
           <label
             className="mb-2 block font-[poppins] text-xs font-bold tracking-wide text-[#23022E] uppercase"
@@ -80,6 +89,7 @@ const ContactUs = () => {
             placeholder=""
           />
         </div>
+        {/* Submit button centered */}
         <div className="flex items-center justify-center">
           <button
             className="focus:shadow-outline cursor-pointer rounded-full bg-[#23022E] px-20 py-3 font-[Playwrite_HU] font-bold text-white focus:outline-none"
@@ -90,6 +100,7 @@ const ContactUs = () => {
         </div>
       </form>
 
+      {/* Decorative downward divider image */}
       <img src={downwardDivider} alt="" />
     </div>
   );

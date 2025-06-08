@@ -1,6 +1,7 @@
 // src/store/filterSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
+// Redux slice for managing filter state (category, sort, price range)
 const filterSlice = createSlice({
   name: "filter",
   initialState: {

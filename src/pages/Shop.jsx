@@ -1,4 +1,3 @@
-import React from "react";
 import InfiniteSlider from "../components/InfiniteSlider";
 import { useDispatch, useSelector } from "react-redux";
 import { increment } from "../store/cartSlice";
@@ -9,64 +8,76 @@ import {
 } from "../store/filterSlice";
 import { Link } from "react-router-dom";
 
+// Shop page component
 const Shop = () => {
   const dispatch = useDispatch();
 
+  // Get products and filter/sort state from Redux store
   const products = useSelector((state) => state.product.products);
   const { selectedCategory, sortOption, minPrice, maxPrice } = useSelector(
     (state) => state.filter,
   );
 
-  // Filter products based on category and price range
+  // Filter products based on selected category and price range
   const filteredProducts = products.filter((product) => {
+    // Calculate discounted price if applicable
     const discountedPrice = product.discount
       ? product.price * (1 - product.discount / 100)
       : product.price;
-    const isInCategory =
-      selectedCategory === "all" ||
-      selectedCategory === "all products" ||
-      (selectedCategory === "sale" && product.discount > 0) ||
-      product.category === selectedCategory;
+
+    // Check if product matches selected category
+    const isAll =
+      selectedCategory === "all" || selectedCategory === "all products";
+    const isSale = selectedCategory === "sale" && product.discount > 0;
+    const isCategory = product.category === selectedCategory;
+
+    // Check if product is within selected price range
     const isInPriceRange =
       discountedPrice >= minPrice && discountedPrice <= maxPrice;
-    return isInCategory && isInPriceRange;
+
+    // Product is included if it matches category and price range
+    return (isAll || isSale || isCategory) && isInPriceRange;
   });
 
-  // Sort products based on sortOption
+  // Sort filtered products based on selected sort option
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     switch (sortOption) {
       case "recommended":
-        return 0;
+        return 0; // No sorting, keep original order
       case "newest":
-        return b.id - a.id;
+        return b.id - a.id; // Sort by newest (assuming higher id is newer)
       case "price-high-low":
+        // Sort by price descending (after discount)
         const priceA = a.discount ? a.price * (1 - a.discount / 100) : a.price;
         const priceB = b.discount ? b.price * (1 - b.discount / 100) : b.price;
         return priceB - priceA;
       case "price-low-high":
+        // Sort by price ascending (after discount)
         const priceA2 = a.discount ? a.price * (1 - a.discount / 100) : a.price;
         const priceB2 = b.discount ? b.price * (1 - b.discount / 100) : b.price;
         return priceA2 - priceB2;
       case "name-a-z":
+        // Sort by name alphabetically (A-Z)
         return a.title.localeCompare(b.title);
       case "name-z-a":
+        // Sort by name reverse alphabetically (Z-A)
         return b.title.localeCompare(a.title);
       default:
         return 0;
     }
   });
 
-  // Handle category selection
+  // Handle category selection from sidebar
   const handleCategoryClick = (category) => {
     dispatch(setCategory(category.toLowerCase()));
   };
 
-  // Handle sort selection
+  // Handle sort option change from dropdown
   const handleSortChange = (e) => {
     dispatch(setSortOption(e.target.value));
   };
 
-  // Handle price range change
+  // Handle price range slider change
   const handlePriceChange = (e) => {
     const value = Number(e.target.value);
     dispatch(setPriceRange({ minPrice: 100, maxPrice: value }));
@@ -74,8 +85,10 @@ const Shop = () => {
 
   return (
     <>
+      {/* Top slider/banner */}
       <InfiniteSlider sliderText={"Shop Zigh"} />
 
+      {/* Page heading and description */}
       <div>
         <h1 className="mt-10 text-center font-[poppins] font-bold text-[#23022E]">
           All Products
@@ -88,12 +101,14 @@ const Shop = () => {
         </p>
       </div>
 
+      {/* Main container */}
       <div className="container mx-auto p-4 font-[poppins] text-[#23022E]">
         <div className="flex flex-col md:flex-row">
-          {/* Sidebar */}
+          {/* Sidebar for category and filter */}
           <div className="w-full rounded-lg p-4 md:w-1/4">
             <h2 className="mb-4 text-lg font-bold">Browse by</h2>
 
+            {/* Category selection list */}
             <ul className="mb-8">
               {[
                 "All Products",
@@ -119,6 +134,7 @@ const Shop = () => {
             </ul>
             <h2 className="mb-4 text-lg font-bold">Filter by</h2>
             <div>
+              {/* Price range slider */}
               <label className="block text-gray-700" htmlFor="price">
                 Price
               </label>
@@ -139,13 +155,15 @@ const Shop = () => {
             </div>
           </div>
 
-          {/* Main Content */}
+          {/* Main content area for products */}
           <div className="w-full p-4 md:w-3/4">
+            {/* Sort and product count */}
             <div className="mb-4 flex items-center justify-between">
               <span className="text-gray-700">
                 {sortedProducts.length} products
               </span>
               <div className="relative">
+                {/* Sort dropdown */}
                 <select
                   className="cursor-pointer appearance-none rounded-md py-2 pr-8 pl-3 font-[poppins] text-[#23022E]"
                   value={sortOption}
@@ -158,12 +176,14 @@ const Shop = () => {
                   <option value="name-a-z">Name (A-Z)</option>
                   <option value="name-z-a">Name (Z-A)</option>
                 </select>
+                {/* Dropdown icon */}
                 <i className="fas fa-chevron-down pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 font-[poppins] text-[#23022E]"></i>
               </div>
             </div>
 
+            {/* Product grid */}
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {/* Product Card */}
+              {/* Render each product card */}
               {sortedProducts.map((product) => {
                 const discountedPrice = product.discount
                   ? product.price * (1 - product.discount / 100)
@@ -173,9 +193,11 @@ const Shop = () => {
                     className="flex flex-col items-center justify-center"
                     key={product.id}
                   >
+                    {/* Product link and image */}
                     <Link to={`/product/${product.id}`}>
                       <div className="flex flex-col items-center justify-center p-6">
                         <div className="h-[20rem] w-[16rem] rounded-2xl bg-[#FFFFFF] p-4 hover:bg-red-600">
+                          {/* Sale badge */}
                           <p className="inline-block rounded-full bg-[#0869D9] p-2 font-[Playwrite_HU] font-bold text-white">
                             {product.discount > 0 ? "Sale" : ""}
                           </p>
@@ -189,10 +211,12 @@ const Shop = () => {
                         </div>
                       </div>
 
+                      {/* Product title */}
                       <h1 className="text-center font-[poppins] font-bold text-[#23022E] hover:text-[#0869D9]">
                         {product.title}
                       </h1>
 
+                      {/* Product price and discount */}
                       <div className="space-x-2 text-center">
                         {product.discount > 0 && (
                           <span className="text-gray-500 line-through">
@@ -205,6 +229,7 @@ const Shop = () => {
                       </div>
                     </Link>
 
+                    {/* Add to Cart button */}
                     <button
                       onClick={() =>
                         dispatch(

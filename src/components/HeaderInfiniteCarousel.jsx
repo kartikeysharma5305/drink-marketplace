@@ -1,14 +1,15 @@
 import React, { useEffect, useRef } from "react";
 
+//  Currently, it shows a single message, but can be extended to multiple items.
+
 const InfiniteCarousel = () => {
-  // Sample items for the carousel (replace with your content)
   const items = [
     {
       content: "Free Shipping on All Orders Over ₹799",
     },
   ];
 
-  // Duplicate items for seamless looping
+  // Duplicate items multiple times for seamless infinite scrolling effect
   const carouselItems = [
     ...items,
     ...items,
@@ -18,19 +19,20 @@ const InfiniteCarousel = () => {
     ...items,
   ].map((item, index) => ({
     ...item,
-    id: index + 1,
+    id: index + 1, // Assign a unique id to each duplicated item
   }));
 
+  // Ref to access the carousel DOM element
   const carouselRef = useRef(null);
 
   useEffect(() => {
     const carousel = carouselRef.current;
     if (!carousel) return;
 
-    // Reset scroll position to avoid jump on reload
+    // Reset scroll position to the start on component mount
     carousel.scrollLeft = 0;
 
-    // Optional: Pause on hover (uncomment if desired)
+    // Optional: Pause animation when mouse hovers over the carousel
     const handleMouseEnter = () =>
       (carousel.style.animationPlayState = "paused");
     const handleMouseLeave = () =>
@@ -39,6 +41,7 @@ const InfiniteCarousel = () => {
     carousel.addEventListener("mouseenter", handleMouseEnter);
     carousel.addEventListener("mouseleave", handleMouseLeave);
 
+    // Cleanup event listeners on component unmount
     return () => {
       carousel.removeEventListener("mouseenter", handleMouseEnter);
       carousel.removeEventListener("mouseleave", handleMouseLeave);
@@ -46,20 +49,23 @@ const InfiniteCarousel = () => {
   }, []);
 
   return (
+    // Outer container to hide overflow and keep carousel within bounds
     <div className="w-full overflow-hidden">
       <div
         ref={carouselRef}
         className="animate-infinite-slide flex"
         style={{
-          animationDuration: "10s",
-          width: `${items.length * 25}%`,
+          animationDuration: "10s", // Duration of the infinite scroll animation
+          width: `${items.length * 25}%`, // Width based on number of items
         }}
       >
+        {/* Render each carousel item */}
         {carouselItems.map((item) => (
           <div
             key={item.id}
             className="font-poppins flex flex-shrink-0 items-center justify-center gap-4 bg-[#23022E] font-normal text-white"
           >
+            {/* Icon displayed before the content */}
             <p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -72,6 +78,7 @@ const InfiniteCarousel = () => {
               </svg>
             </p>
 
+            {/* Carousel item content */}
             <p className="font-semi- p-2">{item.content}</p>
           </div>
         ))}
