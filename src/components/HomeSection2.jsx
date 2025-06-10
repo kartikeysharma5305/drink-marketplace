@@ -121,7 +121,7 @@ const HomeSection2 = () => {
         ])}
 
         {/* Shop Sale button */}
-        <Link to={"/shop"}>
+        <Link to={"/shop#sale"}>
           <ReusableButton
             text={"Shop Sale"}
             iconColor={"white"}

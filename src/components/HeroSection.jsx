@@ -1,4 +1,3 @@
-import React from "react";
 import splitHeroSection from "../assets/images/split-hero.svg";
 import InteractiveSodaCan from "./InteractiveSodaCan";
 import ReusableButton from "./ReusableButton";
@@ -25,7 +24,7 @@ const HeroSection = () => {
         </div>
 
         {/* Button linking to the shop page */}
-        <Link to={"/shop"}>
+        <Link to={"/shop#all"}>
           <ReusableButton
             text={"Explore Flavour"}
             styles={

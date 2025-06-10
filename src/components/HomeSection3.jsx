@@ -16,38 +16,46 @@ const HomeSection3 = () => {
       <img src={sectionDivider} alt="Section divider" />
 
       {/* Section title */}
-      <h1 className="mt-5 mb-12 text-center font-[poppins] font-bold">
+      <h1 className="mt-5 mb-12 text-center font-[poppins] font-bold text-[#23022E]">
         Shop by Category
       </h1>
 
       {/* Category buttons */}
       <div className="mb-8 flex justify-center gap-16">
-        <ReusableButton
-          text="Exotic"
-          styles="text-white bg-[#D71919] hover:bg-[#F0F0F0] hover:text-[#D71919] hover:shadow-[#D71919] hover:border-[#D71919]"
-          iconColor="white"
-          buttonSize={2}
-        />
-        <ReusableButton
-          text="Sour"
-          styles="text-white bg-[#0869D9] hover:bg-[#F0F0F0] hover:text-[#0869D9] hover:shadow-[#0869D9] hover:border-[#0869D9]"
-          iconColor="white"
-          buttonSize={2}
-        />
-        <ReusableButton
-          text="Sweet"
-          styles="text-white bg-[#9A4C95] hover:bg-[#F0F0F0] hover:text-[#9A4C95] hover:shadow-[#9A4C95] hover:border-[#9A4C95]"
-          iconColor="white"
-          buttonSize={2}
-        />
+        <Link to={"/shop#exotic"}>
+          <ReusableButton
+            text="Exotic"
+            styles="text-white bg-[#D71919] hover:bg-[#F0F0F0] hover:text-[#D71919] hover:shadow-[#D71919] hover:border-[#D71919]"
+            iconColor="white"
+            buttonSize={2}
+          />
+        </Link>
+
+        <Link to={"/shope#sour"}>
+          <ReusableButton
+            text="Sour"
+            styles="text-white bg-[#0869D9] hover:bg-[#F0F0F0] hover:text-[#0869D9] hover:shadow-[#0869D9] hover:border-[#0869D9]"
+            iconColor="white"
+            buttonSize={2}
+          />
+        </Link>
+
+        <Link to={"/shop#sweet"}>
+          <ReusableButton
+            text="Sweet"
+            styles="text-white bg-[#9A4C95] hover:bg-[#F0F0F0] hover:text-[#9A4C95] hover:shadow-[#9A4C95] hover:border-[#9A4C95]"
+            iconColor="white"
+            buttonSize={2}
+          />
+        </Link>
       </div>
 
       {/* Promotional text */}
       <div className="p-6">
-        <h1 className="mb-8 text-center font-[poppins] font-bold">
+        <h1 className="mb-8 text-center font-[poppins] font-bold text-[#23022E]">
           Find Your Flavor
         </h1>
-        <p className="text-center font-[Playwrite_HU] text-4xl font-bold">
+        <p className="text-center font-[Playwrite_HU] text-4xl font-bold text-[#23022E]">
           Shop @Zigh Something Great in Every Sip
         </p>
       </div>

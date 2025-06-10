@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import blueberryImg from "../assets/images/blueberryImg.png";
 import grapesImg from "../assets/images/grapes-image.png";
 import hempLeavesImg from "../assets/images/hemp-leaves.png";
@@ -6,13 +7,30 @@ import watermelonImg from "../assets/images/watermelon-image.png";
 import ContactUs from "../components/ContactUs";
 import Faq from "../components/Faq";
 import InfiniteSlider from "../components/InfiniteSlider";
+import { useEffect } from "react";
 
 const About = () => {
+  // this is to redirect abd move the uses to the element that he clicked for
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const elementId = location.hash.replace("#", "");
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // Scroll to top if no hash is provided
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [location]);
+
   return (
     <>
       <InfiniteSlider sliderText={"About Us"} />{" "}
       {/* Infinite Slider Component */}
-      <div className="grid grid-cols-4 grid-rows-1 justify-center">
+      <div id="heading" className="grid grid-cols-4 grid-rows-1 justify-center">
         <img
           className="w-[13rem] translate-y-[3rem]"
           src={blueberryImg}
@@ -44,7 +62,10 @@ const About = () => {
           feature that sets it apart from competitors.
         </p>
       </div>
-      <div className="mt-40 flex flex-col items-center justify-center">
+      <div
+        id="find-us"
+        className="mt-40 flex flex-col items-center justify-center"
+      >
         <svg
           preserveAspectRatio="none"
           data-bbox="0.664 0.252 558.844 15.407"
@@ -93,7 +114,9 @@ const About = () => {
         </span>
       </div>
       <ContactUs /> {/*Contact Us component*/}
-      <Faq /> {/*FAQs component*/}
+      <div id="faq">
+        <Faq /> {/*FAQs component*/}
+      </div>
     </>
   );
 };

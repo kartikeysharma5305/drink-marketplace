@@ -7,6 +7,7 @@ import watermelonImg from "../assets/images/watermelon-image.png";
 import ReusableButton from "./ReusableButton";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { Link } from "react-router-dom";
 
 // HomeSection5 component displays the "About Us" section with animated fruit images and description
 const HomeSection5 = () => {
@@ -93,14 +94,16 @@ const HomeSection5 = () => {
         </p>
 
         {/* Call-to-action button */}
-        <ReusableButton
-          text={"See Yourself"}
-          styles={
-            "bg-[#D71919] mb-10 text-[#23022E] hover:bg-white hover:shadow-[#D71919] hover:text-[#D71919]"
-          }
-          buttonSize={1}
-          iconColor={"white"}
-        />
+        <Link to={"/about#heading"}>
+          <ReusableButton
+            text={"See Yourself"}
+            styles={
+              "bg-[#D71919] mb-10 text-[#23022E] hover:bg-white hover:shadow-[#D71919] hover:text-[#D71919]"
+            }
+            buttonSize={1}
+            iconColor={"white"}
+          />
+        </Link>
       </div>
     </>
   );

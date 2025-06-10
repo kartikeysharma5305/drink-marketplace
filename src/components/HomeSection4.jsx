@@ -1,5 +1,6 @@
 import ReusableButton from "./ReusableButton";
 import divider from "../assets/images/footer-divider.png";
+import { Link } from "react-router-dom";
 
 // HomeSection4 component displays a section highlighting best selling drinks
 const HomeSection4 = () => {
@@ -18,12 +19,14 @@ const HomeSection4 = () => {
 
         {/* "Explore All" button with custom styles */}
         <div className="pb-10">
-          <ReusableButton
-            text="Explore All"
-            styles="text-white  bg-[#0869D9] hover:bg-[white] hover:border-[#0869D9] hover:shadow-[#0869D9] hover:text-[#0869D9]"
-            iconColor="white"
-            buttonSize={2}
-          />
+          <Link to={"/shop#all"}>
+            <ReusableButton
+              text="Explore All"
+              styles="text-white  bg-[#0869D9] hover:bg-[white] hover:border-[#0869D9] hover:shadow-[#0869D9] hover:text-[#0869D9]"
+              iconColor="white"
+              buttonSize={2}
+            />
+          </Link>
         </div>
       </div>
       {/* Decorative divider image at the bottom, rotated 180 degrees */}

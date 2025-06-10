@@ -4,6 +4,8 @@ import {
   decrement,
   increaseQuantity,
 } from "../store/cartSlice";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 // Cart component displays the user's shopping cart and order summary
 const Cart = () => {
@@ -15,8 +17,46 @@ const Cart = () => {
 
   const dispatch = useDispatch();
 
+  // this is to redirect abd move the uses to the element that he clicked for
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const elementId = location.hash.replace("#", "");
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // Scroll to top if no hash is provided
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [location]);
+
+  if (!items || items.length === 0) {
+    return (
+      <div
+        id="head"
+        className="flex min-h-[60vh] flex-col items-center justify-center"
+      >
+        <h2 className="mb-4 font-[poppins] text-2xl font-bold text-[#23022E]">
+          Your cart is empty
+        </h2>
+        <Link
+          to="/shop"
+          className="font-[poppins] font-bold text-blue-600 hover:underline"
+        >
+          Continue Shopping
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <>
+      <h1 className="pb-16 text-[#f0f0f0]" id="head">
+        j
+      </h1>
       <section className="mt-6 flex flex-row justify-evenly">
         {/* Cart items and actions section */}
         <div className="flex w-full flex-col gap-4 p-6">

@@ -6,7 +6,8 @@ import {
   setSortOption,
   setPriceRange,
 } from "../store/filterSlice";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 // Shop page component
 const Shop = () => {
@@ -83,15 +84,46 @@ const Shop = () => {
     dispatch(setPriceRange({ minPrice: 100, maxPrice: value }));
   };
 
+  // this is to redirect abd move the uses to the element that he clicked for
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const hash = location.hash.replace("#", "");
+      // Normalize hash for category matching (e.g., "all-products")
+      const normalizedCategory = hash.replace(/-/g, " ").toLowerCase();
+      dispatch(setCategory(normalizedCategory));
+      // Scroll to the button with the corresponding id (e.g., category-sale)
+      setTimeout(() => {
+        const btn = document.getElementById(`category-${hash}`);
+        if (btn) {
+          btn.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+        // Also scroll to the products section
+        const productsSection = document.getElementById("products");
+        if (productsSection) {
+          productsSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }, 0);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [location, dispatch]);
+
   return (
     <>
       {/* Top slider/banner */}
-      <InfiniteSlider sliderText={"Shop Zigh"} />
+      <section id="products">
+        <InfiniteSlider sliderText={"Shop Zigh"} />
+      </section>
 
       {/* Page heading and description */}
       <div>
         <h1 className="mt-10 text-center font-[poppins] font-bold text-[#23022E]">
-          All Products
+          {selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}
         </h1>
         <p className="mt-10 mb-10 text-center font-[poppins] text-[#23022E]">
           "Sparkling hemp-infused beverages offering a refreshing, earthy twist.{" "}

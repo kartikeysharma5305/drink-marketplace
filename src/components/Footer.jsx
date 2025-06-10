@@ -67,36 +67,39 @@ const Footer = () => {
         <div className="container mx-auto flex flex-col justify-between p-8 font-bold text-white md:flex-row">
           {/* Brand and main navigation links */}
           <div className="mb-6 md:mb-0">
-            <h1 className="mb-4 font-[playwrite_HU] text-2xl font-bold text-yellow-400">
+            <Link
+              to="/#home"
+              className="mb-4 font-[playwrite_HU] text-2xl font-bold text-yellow-400"
+            >
               Zigh
-            </h1>
+            </Link>
             <ul>
-              <li className="mb-2">
+              <li className="mt-4 mb-2">
                 {/* Internal link to Shop page */}
-                <Link to="/shop" className="hover:underline">
+                <Link to="/shop#all" className="hover:underline">
                   Shop
                 </Link>
               </li>
               {/* Placeholder links for other sections */}
               <li className="mb-2">
-                <a href="#" className="hover:underline">
+                <Link to="/shop#subscription" className="hover:underline">
                   Subscription
-                </a>
+                </Link>
               </li>
               <li className="mb-2">
-                <a href="#" className="hover:underline">
+                <Link to="/about#heading" className="hover:underline">
                   About
-                </a>
+                </Link>
               </li>
               <li className="mb-2">
-                <a href="#" className="hover:underline">
+                <Link to="/about#find-us" className="hover:underline">
                   Find Us
-                </a>
+                </Link>
               </li>
               <li className="mb-2">
-                <a href="#" className="hover:underline">
+                <Link to="/about#faq" className="hover:underline">
                   FAQ
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -13,7 +12,7 @@ const Header = () => {
         <div className="mx-5 mt-5 flex w-[90%] items-center justify-between rounded-full border-2 border-[#FFD700] bg-white px-5 py-4.5">
           {/* Logo linking to homepage */}
           <Link
-            to={"/"}
+            to={"/#home"}
             className="text-1rem font-['Playwrite_HU'] font-bold text-[#23022E]"
           >
             Zigh
@@ -23,32 +22,32 @@ const Header = () => {
           <div className="ml-26 flex gap-5">
             {/* Shop page link */}
             <Link
-              to="/shop"
+              to="/shop#all"
               className="text-1rem font-['Playwrite_HU'] font-bold text-[#23022E] no-underline hover:text-sky-700"
             >
               Shop
             </Link>
             {/* Subscription placeholder link */}
-            <a
-              href="#"
+            <Link
+              to="/shop#subscription"
               className="text-1rem font-['Playwrite_HU'] font-bold text-[#23022E] no-underline hover:text-sky-700"
             >
               Subscription
-            </a>
+            </Link>
             {/* About page link */}
             <Link
-              to="/about"
+              to="/about#heading"
               className="text-1rem font-['Playwrite_HU'] font-bold text-[#23022E] no-underline hover:text-sky-700"
             >
               About
             </Link>
             {/* Find Us placeholder link */}
-            <a
-              href="#"
+            <Link
+              to="/about#find-us"
               className="text-1rem font-['Playwrite_HU'] font-bold text-[#23022E] no-underline hover:text-sky-700"
             >
               Find Us
-            </a>
+            </Link>
           </div>
 
           {/* Login and Cart section */}
@@ -61,7 +60,7 @@ const Header = () => {
               Log In
             </Link>
             {/* Cart icon with total quantity, links to cart page */}
-            <Link to={"/cart"}>
+            <Link to={"/cart#head"}>
               <div className="flex items-center justify-center rounded-full bg-[#1E90FF] p-2.5 font-bold text-white">
                 <i className="fas fa-shopping-cart pr-2"></i>
                 {totalQuantity}
