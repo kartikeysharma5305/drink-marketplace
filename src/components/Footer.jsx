@@ -142,22 +142,22 @@ const Footer = () => {
           </div>
 
           {/* Social media icons */}
-          <div className="mt-12 mr-12 flex space-x-4">
+          <div className="mt-12 mr-12 block space-x-4">
             <a
               href="#"
-              className="block text-[#23022e] transition-transform duration-200 hover:scale-110 hover:text-[#F8CE35]"
+              className="text-[#23022e] transition-transform duration-200 hover:scale-110 hover:text-[#F8CE35]"
             >
               <i className="fab fa-youtube rounded-4xl bg-white p-3"></i>
             </a>
             <a
               href="#"
-              className="block text-[#23022e] transition-transform duration-200 hover:scale-110 hover:text-[#F8CE35]"
+              className="text-[#23022e] transition-transform duration-200 hover:scale-110 hover:text-[#F8CE35]"
             >
               <i className="fab fa-instagram rounded-4xl bg-white p-3"></i>
             </a>
             <a
               href="#"
-              className="block text-[#23022e] transition-transform duration-200 hover:scale-110 hover:text-[#F8CE35]"
+              className="text-[#23022e] transition-transform duration-200 hover:scale-110 hover:text-[#F8CE35]"
             >
               <i className="fab fa-snapchat rounded-4xl bg-white p-3"></i>
             </a>

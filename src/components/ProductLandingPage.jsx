@@ -1,5 +1,4 @@
 // src/components/ProductLandingPage.js
-import React from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -7,6 +6,7 @@ import {
   increaseQuantity,
   increment,
 } from "../store/cartSlice";
+import { useEffect } from "react";
 
 // ProductLandingPage component displays detailed info for a single product
 const ProductLandingPage = () => {
@@ -23,6 +23,11 @@ const ProductLandingPage = () => {
   if (!product) {
     return <div>Product not found</div>;
   }
+
+  // Scroll to top when Shop page mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   // Calculate discounted price if discount exists
   const discountedPrice = product.discount
@@ -81,11 +86,12 @@ const ProductLandingPage = () => {
           {/* Product description */}
           <p className="font-[poppins]">{product.description}</p>
 
-          {/* Quantity controls for each cart item */}
+          {/* Quantity controls for this product only */}
           <div>
             <p className="text-lg font-semibold text-[#23022E]">Quantity</p>
-            {items.map((item) => {
-              return (
+            {items
+              .filter((item) => item.id === product.id)
+              .map((item) => (
                 <div
                   key={item.id}
                   className="mt-2 flex items-center space-x-4 rounded-full px-4 py-2"
@@ -109,8 +115,7 @@ const ProductLandingPage = () => {
                     <i className="fas fa-plus text-[#23022E]"></i>
                   </button>
                 </div>
-              );
-            })}
+              ))}
           </div>
 
           {/* Add to Cart and Buy Now buttons */}

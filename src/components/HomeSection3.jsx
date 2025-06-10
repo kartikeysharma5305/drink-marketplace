@@ -2,13 +2,16 @@
 import sectionDivider from "../assets/images/home-section-3-divider.png";
 import ReusableButton from "./ReusableButton";
 import footerDivider from "../assets/images/footer-divider.png";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { increment } from "../store/cartSlice";
 
 // HomeSection3 component displays a section with category buttons and featured products
 const HomeSection3 = () => {
   // Get the list of products from Redux store
   const products = useSelector((state) => state.product.products);
+
+  const dispatch = useDispatch();
 
   return (
     <section className="bg-[#F0F0F0]">
@@ -110,7 +113,20 @@ const HomeSection3 = () => {
               </Link>
 
               {/* Add to Cart button */}
-              <button className="mt-2 cursor-pointer rounded-full bg-[#23022E] px-4 py-2 font-[Playwrite_HU] font-bold text-white hover:bg-[#0869D9]">
+              <button
+                className="mt-2 cursor-pointer rounded-full bg-[#23022E] px-4 py-2 font-[Playwrite_HU] font-bold text-white hover:bg-[#0869D9]"
+                onClick={() =>
+                  dispatch(
+                    increment({
+                      id: product.id,
+                      title: product.title,
+                      price: discountedPrice,
+                      image: product.image,
+                      realPrice: product.price,
+                    }),
+                  )
+                }
+              >
                 Add to Cart
               </button>
             </div>

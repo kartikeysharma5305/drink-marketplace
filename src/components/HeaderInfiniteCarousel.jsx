@@ -5,7 +5,7 @@ import React, { useEffect, useRef } from "react";
 const InfiniteCarousel = () => {
   const items = [
     {
-      content: "Free Shipping on All Orders Over ₹799",
+      content: "Free Shipping on All Orders Above ₹799",
     },
   ];
 
