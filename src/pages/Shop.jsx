@@ -89,16 +89,29 @@ const Shop = () => {
 
   useEffect(() => {
     if (location.hash) {
-      const elementId = location.hash.replace("#", "");
-      const element = document.getElementById(elementId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+      const hash = location.hash.replace("#", "");
+      // Normalize hash for category matching (e.g., "all-products")
+      const normalizedCategory = hash.replace(/-/g, " ").toLowerCase();
+      dispatch(setCategory(normalizedCategory));
+      // Scroll to the button with the corresponding id (e.g., category-sale)
+      setTimeout(() => {
+        const btn = document.getElementById(`category-${hash}`);
+        if (btn) {
+          btn.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+        // Also scroll to the products section
+        const productsSection = document.getElementById("products");
+        if (productsSection) {
+          productsSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }, 0);
     } else {
-      // Scroll to top if no hash is provided
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  }, [location]);
+  }, [location, dispatch]);
 
   return (
     <>
