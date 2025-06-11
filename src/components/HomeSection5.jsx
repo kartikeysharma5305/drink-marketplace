@@ -1,15 +1,17 @@
-// Import necessary components, images, hooks, and libraries
+import React, { useEffect, useRef } from "react";
 import InfiniteSlider from "./InfiniteSlider";
 import blueberryImg from "../assets/images/blueberryImg.png";
 import grapesImg from "../assets/images/grapes-image.png";
 import rasberryImg from "../assets/images/raspberry-image.png";
 import watermelonImg from "../assets/images/watermelon-image.png";
 import ReusableButton from "./ReusableButton";
-import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
 
-// HomeSection5 component displays the "About Us" section with animated fruit images and description
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
+
 const HomeSection5 = () => {
   // Reference to the container div holding the images
   const imagesRef = useRef(null);
@@ -18,26 +20,29 @@ const HomeSection5 = () => {
 
   // Animate images on scroll using GSAP
   useEffect(() => {
-    imgRefs.current.forEach((img, i) => {
-      gsap.fromTo(
-        img,
-        { opacity: 0, y: 60, rotate: 0 }, // Initial state: hidden, moved down, no rotation
-        {
-          opacity: 1,
-          y: 0,
-          rotate: 360, // Animate to: visible, original position, rotated 360deg
-          duration: 1,
-          delay: i * 0.2, // Stagger animations for each image
+    // Ensure images exist before animating
+    if (imgRefs.current.length > 0) {
+      imgRefs.current.forEach((img) => {
+        gsap.to(img, {
+          rotation: 360, // 1 full spin clockwise when scrolling down
+          ease: "none",
           scrollTrigger: {
             trigger: img,
-            start: "top 80%", // Start animation when image enters viewport
-            toggleActions: "play none none reverse",
+            start: "top 80%", // Start when image top hits 80% of viewport
+            end: "bottom 20%", // End when image bottom hits 20% of viewport
+            scrub: 1, // Smoothly tie animation to scroll position
+            toggleActions: "play none none reverse", // Reverse to -360 (counterclockwise) on scroll up
           },
-        },
-      );
-    });
-  }, []);
+        });
+      });
+    }
 
+    // Cleanup ScrollTriggers and animations on component unmount
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      gsap.killTweensOf(imgRefs.current);
+    };
+  }, []);
   return (
     <>
       {/* Section title slider */}
@@ -52,25 +57,25 @@ const HomeSection5 = () => {
           ref={(el) => (imgRefs.current[0] = el)}
           className="mt-14 w-[13rem]"
           src={blueberryImg}
-          alt="blueberry"
+          alt="Blueberry illustration for About Us section"
         />
         <img
           ref={(el) => (imgRefs.current[1] = el)}
           className="z-0 mb-50 w-[13rem]"
           src={grapesImg}
-          alt="grapes"
+          alt="Grapes illustration for About Us section"
         />
         <img
           ref={(el) => (imgRefs.current[2] = el)}
           className="z-0 mb-30 w-[10rem]"
           src={rasberryImg}
-          alt="rasberry"
+          alt="Raspberry illustration for About Us section"
         />
         <img
           ref={(el) => (imgRefs.current[3] = el)}
           className="z-0 w-[15rem]"
           src={watermelonImg}
-          alt="piece of water melon"
+          alt="Watermelon slice illustration for About Us section"
         />
       </div>
 

@@ -9,7 +9,7 @@ const HeroSection = () => {
     <>
       {/* Main container with background color and negative top margin for overlap effect */}
       <div className="mt-[-7rem] bg-[#F8CE35]">
-        <h2 className="p-[10rem_2.5rem_2rem_0rem] text-center font-[poppins] font-extrabold">
+        <h2 className="p-[10rem_2.5rem_0rem_0rem] text-center font-[poppins] font-extrabold">
           Craft Soft Sparkling Made with Joy and BHANG.
         </h2>
         {/* Flex container for soda can and main title */}
@@ -18,7 +18,10 @@ const HeroSection = () => {
           <InteractiveSodaCan />
 
           {/* Main hero title */}
-          <h1 className="z-1 ml-[2rem] font-[Playwrite_HU] text-[7rem] font-extrabold text-[#23022E]">
+          <h1
+            className="floating-hero-title z-1 ml-[2rem] font-[Playwrite_HU] text-[7rem] font-extrabold text-[#23022E]"
+            style={{ position: "relative" }}
+          >
             Lets Get <br /> High AF
           </h1>
         </div>

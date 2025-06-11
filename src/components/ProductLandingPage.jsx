@@ -1,5 +1,5 @@
 // src/components/ProductLandingPage.js
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
   decreaseQuantity,
@@ -13,6 +13,7 @@ const ProductLandingPage = () => {
   // Get product ID from URL parameters
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // Find the product in the Redux store by ID
   const product = useSelector((state) =>
@@ -24,7 +25,7 @@ const ProductLandingPage = () => {
     return <div>Product not found</div>;
   }
 
-  // Scroll to top when Shop page mounts
+  // Scroll to top when page mounts
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
@@ -37,25 +38,54 @@ const ProductLandingPage = () => {
   // Get cart items from Redux store
   const items = useSelector((state) => state.cart.items);
 
+  // Get all products for navigation
+  const products = useSelector((state) => state.product.products);
+  // Find the index of the current product
+  const currentIndex = products.findIndex((p) => p.id === parseInt(id));
+  const prevProduct = currentIndex > 0 ? products[currentIndex - 1] : null;
+  const nextProduct =
+    currentIndex < products.length - 1 ? products[currentIndex + 1] : null;
+
   return (
     <>
-      {/* Header section with product title and navigation buttons */}
+      {/* // Header section with product title and navigation buttons */}
       <div className="flex justify-between px-8 py-8 font-[poppins] font-semibold text-[#23022E]">
+        {/* Display the product title */}
         <h1>{product.title}</h1>
         <div>
+          {/* Left chevron icon */}
           <i className="fa-solid fa-chevron-left px-2"></i>
-          <button>Previous</button> &nbsp;
+          {/* Previous button: navigates to previous product if available */}
+          <button
+            disabled={!prevProduct}
+            onClick={() => {
+              if (prevProduct) navigate(`/product/${prevProduct.id}`);
+            }}
+            className={`mr-2 ${!prevProduct ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}
+          >
+            Previous
+          </button>
+          {/* Separator */}
           <span>|</span> &nbsp;
-          <button>Next</button>
+          {/* Next button: navigates to next product if available */}
+          <button
+            disabled={!nextProduct}
+            onClick={() => {
+              if (nextProduct) navigate(`/product/${nextProduct.id}`);
+            }}
+            className={`ml-2 ${!nextProduct ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}
+          >
+            Next
+          </button>
+          {/* Right chevron icon */}
           <i className="fa-solid fa-chevron-right px-2"></i>
         </div>
       </div>
-
-      {/* Main content section */}
+      {/* // Main content section */}
       <section className="flex gap-8 p-8 text-[#23022E]">
         {/* Product image */}
         <div>
-          <div className="flex h-[40rem] w-[32rem] items-center justify-center rounded-2xl bg-[#FFFFFF] p-4 hover:bg-red-600">
+          <div className="flex h-[32rem] w-[32rem] items-center justify-center rounded-2xl bg-[#FFFFFF] p-4 hover:bg-red-600">
             <img
               className="h-auto w-[30rem] rounded-2xl"
               src={product.image}

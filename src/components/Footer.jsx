@@ -107,29 +107,29 @@ const Footer = () => {
           <div className="mt-12 mb-6 md:mb-0">
             <ul>
               <li className="mb-2">
-                <a href="#" className="hover:underline">
+                <Link to="/terms&condition" className="hover:underline">
                   Terms & Conditions
-                </a>
+                </Link>
               </li>
               <li className="mb-2">
-                <a href="#" className="hover:underline">
+                <Link to="/privacy-policy" className="hover:underline">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li className="mb-2">
-                <a href="#" className="hover:underline">
+                <Link to="/refund-policy" className="hover:underline">
                   Refund Policy
-                </a>
+                </Link>
               </li>
               <li className="mb-2">
-                <a href="#" className="hover:underline">
+                <Link to="/shipping-policy" className="hover:underline">
                   Shipping Policy
-                </a>
+                </Link>
               </li>
               <li className="mb-2">
-                <a href="#" className="hover:underline">
+                <Link to="/accessibility-statement" className="hover:underline">
                   Accessibility Statement
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

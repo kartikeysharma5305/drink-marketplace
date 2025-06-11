@@ -5,7 +5,7 @@ import {
   increaseQuantity,
 } from "../store/cartSlice";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // Cart component displays the user's shopping cart and order summary
 const Cart = () => {
@@ -20,18 +20,13 @@ const Cart = () => {
   // this is to redirect abd move the uses to the element that he clicked for
   const location = useLocation();
 
+  // Scroll to top when page mounts
   useEffect(() => {
-    if (location.hash) {
-      const elementId = location.hash.replace("#", "");
-      const element = document.getElementById(elementId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    } else {
-      // Scroll to top if no hash is provided
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }, [location]);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
+  const [showPromo, setShowPromo] = useState(false);
+  const [showNote, setShowNote] = useState(false);
 
   if (!items || items.length === 0) {
     return (
@@ -54,9 +49,6 @@ const Cart = () => {
 
   return (
     <>
-      <h1 className="pb-16 text-[#f0f0f0]" id="head">
-        j
-      </h1>
       <section className="mt-6 flex flex-row justify-evenly">
         {/* Cart items and actions section */}
         <div className="flex w-full flex-col gap-4 p-6">
@@ -65,12 +57,12 @@ const Cart = () => {
             <h1 className="font-[Playwrite_HU] text-2xl font-bold text-[#23022E]">
               My cart
             </h1>
-            <a
-              href="#"
+            <Link
+              to="/shop#all"
               className="font-[poppins] font-bold text-[#0869D9] hover:underline"
             >
               Continue Browsing &gt;
-            </a>
+            </Link>
           </div>
 
           {/* Divider line */}
@@ -144,32 +136,46 @@ const Cart = () => {
 
           {/* Promo code input section */}
           <div className="mb-4">
-            <div className="mb-2 flex items-center font-[poppins] font-bold text-blue-600">
+            <div
+              onClick={() => {
+                setShowPromo((prev) => !prev);
+              }}
+              className="mb-2 inline-block cursor-pointer items-center font-[poppins] font-bold text-blue-600"
+            >
               <i className="fas fa-tag mr-2"></i>
               <span>Enter a promo code</span>
             </div>
-            <div className="flex w-[25rem] font-[poppins]">
-              <input
-                type="text"
-                placeholder="e.g., SAVE50"
-                className="flex-1 rounded-l-lg border-2 border-[#23022E] p-2 font-bold focus:outline-none"
-              />
-              <button className="rounded-r-lg bg-[#23022E] px-4 py-2 font-bold text-white hover:bg-[#F8CE35] hover:text-[#23022E]">
-                Apply
-              </button>
-            </div>
+            {showPromo && (
+              <div className="flex w-[25rem] font-[poppins]">
+                <input
+                  type="text"
+                  placeholder="e.g., SAVE50"
+                  className="flex-1 rounded-l-lg border-2 border-[#23022E] p-2 font-bold focus:outline-none"
+                />
+                <button className="rounded-r-lg bg-[#23022E] px-4 py-2 font-bold text-white hover:bg-[#F8CE35] hover:text-[#23022E]">
+                  Apply
+                </button>
+              </div>
+            )}
           </div>
 
           {/* Note input section */}
           <div>
-            <div className="mb-2 flex items-center font-[poppins] font-bold text-blue-600">
+            <div
+              onClick={() => {
+                setShowNote((prev) => !prev);
+              }}
+              className="mb-2 inline-block cursor-pointer items-center font-[poppins] font-bold text-blue-600"
+            >
               <i className="fas fa-sticky-note mr-2"></i>
               <span>Add a note</span>
             </div>
-            <textarea
-              placeholder="e.g., Leave outside the front door"
-              className="w-[25rem] rounded-lg border-2 border-[#23022E] p-2 font-[poppins] font-bold focus:ring-2 focus:outline-none"
-            ></textarea>
+            {showNote && (
+              <textarea
+                placeholder="e.g., Leave outside the front door"
+                className="flex w-[25rem] rounded-lg border-2 border-[#23022E] p-2 font-[poppins] font-bold focus:ring-2 focus:outline-none"
+              ></textarea>
+            )}
           </div>
         </div>
 

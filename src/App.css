@@ -1,0 +1,21 @@
+.floating-hero-title {
+  animation: floatY 3.5s ease-in-out infinite;
+}
+
+@keyframes floatY {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-18px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  75% {
+    transform: translateY(14px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
