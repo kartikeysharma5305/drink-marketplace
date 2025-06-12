@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import heroCan from "../assets/images/hero-section-can.avif";
+import heroCan from "../assets/images/can1.avif";
 import hempLeaf from "../assets/images/hemp-leaf.png";
 
 // InteractiveSodaCan component displays a soda can with interactive parallax effects
