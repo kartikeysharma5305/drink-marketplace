@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import InfiniteSlider from "./InfiniteSlider";
 import blueberryImg from "../assets/images/blueberryImg.png";
 import grapesImg from "../assets/images/grapes-image.png";

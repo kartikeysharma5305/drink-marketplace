@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import heroCan from "../assets/images/hero-section-can.avif";
+import can1 from "../assets/images/can1.avif";
 import ReusableButton from "./ReusableButton";
 import { Link } from "react-router-dom";
 
@@ -113,8 +113,8 @@ const HomeSection2 = () => {
           <img
             ref={addToImageRefs}
             key="image1"
-            className="mr-4 w-[6rem]"
-            src={heroCan}
+            className="mr-4 w-[10rem]"
+            src={can1}
             alt="Hero Can"
           />,
           "Real Bhang",
@@ -139,8 +139,8 @@ const HomeSection2 = () => {
             <img
               ref={addToImageRefs}
               key="image2"
-              className="w-[6rem]"
-              src={heroCan}
+              className="w-[10rem]"
+              src={can1}
               alt="Hero Can"
             />,
           ],
@@ -152,8 +152,8 @@ const HomeSection2 = () => {
           <img
             ref={addToImageRefs}
             key="image3"
-            className="mr-4 w-[6rem]"
-            src={heroCan}
+            className="mr-4 w-[10rem]"
+            src={can1}
             alt="Hero Can"
           />,
           "Ingredients",
