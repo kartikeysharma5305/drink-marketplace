@@ -19,7 +19,7 @@ const HeroSection = () => {
 
           {/* Main hero title */}
           <h1
-            className="floating-hero-title z-1 ml-[2rem] font-[Playwrite_HU] text-[7rem] font-extrabold text-[#23022E]"
+            className="floating-hero-title z-1 ml-[-2rem] font-[Playwrite_HU] text-[7rem] font-extrabold text-[#23022E]"
             style={{ position: "relative" }}
           >
             Lets Get <br /> High AF

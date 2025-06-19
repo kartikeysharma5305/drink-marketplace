@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import heroCan from "../assets/images/can1.avif";
+import heroCan from "../assets/images/interactive-soda-can.avif";
 import hempLeaf from "../assets/images/hemp-leaf.png";
 
 // InteractiveSodaCan component displays a soda can with interactive parallax effects
@@ -90,7 +90,7 @@ const InteractiveSodaCan = () => {
           ref={canRef}
           src={heroCan}
           alt="Soda Can"
-          className="relative z-10 w-[14rem] transition-transform duration-100"
+          className="relative z-10 w-[15rem] transition-transform duration-100"
         />
       </div>
 
