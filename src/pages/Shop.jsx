@@ -142,27 +142,22 @@ const Shop = () => {
 
             {/* Category selection list */}
             <ul className="mb-8">
-              {[
-                "All Products",
-                "Exotic",
-                "Sour",
-                "Sweet",
-                "Subscription",
-                "Sale",
-              ].map((category) => (
-                <li className="mb-2" key={category}>
-                  <button
-                    className={`cursor-pointer text-gray-700 hover:text-[#23022E] ${
-                      selectedCategory === category.toLowerCase()
-                        ? "font-bold"
-                        : ""
-                    }`}
-                    onClick={() => handleCategoryClick(category)}
-                  >
-                    {category}
-                  </button>
-                </li>
-              ))}
+              {["All Products", "Exotic", "Sour", "Sweet", "Pack", "Sale"].map(
+                (category) => (
+                  <li className="mb-2" key={category}>
+                    <button
+                      className={`cursor-pointer text-gray-700 hover:text-[#23022E] ${
+                        selectedCategory === category.toLowerCase()
+                          ? "font-bold"
+                          : ""
+                      }`}
+                      onClick={() => handleCategoryClick(category)}
+                    >
+                      {category}
+                    </button>
+                  </li>
+                ),
+              )}
             </ul>
             <h2 className="mb-4 text-lg font-bold">Filter by</h2>
             <div>

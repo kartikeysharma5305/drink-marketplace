@@ -10,7 +10,7 @@ const HomeSection4 = () => {
       <div className="flex flex-col items-center justify-center bg-[#23022E] pt-10">
         {/* Section title */}
         <h1 className="pb-2 font-[poppins] font-bold text-white">
-          Our Best Selling Drinks
+          Our Best Feel Good Drinks
         </h1>
         {/* Section subtitle */}
         <p className="p-12 font-[Playwrite_HU] text-3xl font-bold text-white">
@@ -21,7 +21,7 @@ const HomeSection4 = () => {
         <div className="pb-10">
           <Link to={"/shop#all"}>
             <ReusableButton
-              text="Explore All"
+              text="Explore Zigh Drinks"
               styles="text-white  bg-[#0869D9] hover:bg-[white] hover:border-[#0869D9] hover:shadow-[#0869D9] hover:text-[#0869D9]"
               iconColor="white"
               buttonSize={2}

@@ -123,7 +123,7 @@ const HomeSection2 = () => {
         {/* Shop Sale button */}
         <Link to={"/shop#sale"}>
           <ReusableButton
-            text={"Shop Sale"}
+            text={"Sale On"}
             iconColor={"white"}
             styles={
               "mr-12 mt-12 text-[#23022E] bg-[#F8CE35] hover:bg-white hover:shadow-[#F8CE35] hover:text-[#23022E] "
@@ -156,7 +156,7 @@ const HomeSection2 = () => {
             src={can1}
             alt="Hero Can"
           />,
-          "Ingredients",
+          "Natural",
         ])}
       </div>
     </div>

@@ -85,23 +85,22 @@ const HomeSection5 = () => {
         <h1 className="mt-[-10rem] mb-6 font-[poppins] text-[1.15rem] font-bold">
           About
         </h1>
-
         {/* Section subheading */}
         <p className="mb-10 font-[Playwrite_HU] text-3xl font-bold">
-          How We Got Our Flavors
+          How We Make Our Drinks
         </p>
-
         {/* Section description */}
         <p className="mb-6 w-[40rem] text-center font-[poppins]">
-          Let the writing speak for itself. Keep a consistent tone and voice
-          throughout the website to stay true to the brand image and give
-          visitors a taste of the company’s values and personality.
+          Our drinks are crafted using premium hemp extract, carefully blended
+          to deliver a unique and uplifting experience. We focus on quality and
+          consistency, ensuring every sip provides a smooth, enjoyable high
+          while staying true to our commitment to natural ingredients and
+          authentic flavor.
         </p>
-
         {/* Call-to-action button */}
         <Link to={"/about#heading"}>
           <ReusableButton
-            text={"See Yourself"}
+            text={"Know More"}
             styles={
               "bg-[#D71919] mb-10 text-[#23022E] hover:bg-white hover:shadow-[#D71919] hover:text-[#D71919]"
             }

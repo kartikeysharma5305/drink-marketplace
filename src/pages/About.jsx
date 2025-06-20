@@ -29,7 +29,8 @@ const About = () => {
   return (
     <>
       <InfiniteSlider sliderText={"About Us"} />{" "}
-      {/* Infinite Slider Component */}
+      {/* Infinite Slider Component
+       */}
       <div id="heading" className="grid grid-cols-4 grid-rows-1 justify-center">
         <img
           className="w-[13rem] translate-y-[3rem]"
@@ -49,17 +50,20 @@ const About = () => {
         />
         <img className="w-[13rem]" src={watermelonImg} alt="watermelon" />
       </div>
-      <div>
+      <div className="text-center">
         <h1 className="mb-6 text-center font-[Playwrite_HU] text-3xl font-bold text-[#23022E]">
-          It's All About Natural Ingredients
+          All About The Making Process
         </h1>
-        <p className="text-center font-[poppins]">
-          This is a space to share more about the business: who's behind it,
-          what it <br /> does and what this site has to offer. It’s an
-          opportunity to tell the story <br /> behind the business or describe a
-          special service or product it offers. You <br /> can use this section
-          to share the company's history or highlight a <br /> particular
-          feature that sets it apart from competitors.
+        <p className="mx-auto w-[40rem] font-[poppins]">
+          Our hemp-infused beverage is crafted to deliver a unique, uplifting
+          experience with every sip. We start by carefully extracting premium
+          hemp to ensure purity and potency. The extract is then blended with
+          natural fruit flavors such as blueberry, grape, raspberry, and
+          watermelon, creating a refreshing and flavorful drink. Each batch is
+          precisely formulated to maintain consistency and quality, ensuring a
+          smooth taste and a pleasant high. The result is a delicious,
+          ready-to-drink beverage that combines the benefits of hemp with the
+          vibrant taste of your favorite fruits.
         </p>
       </div>
       <div
@@ -101,16 +105,19 @@ const About = () => {
           Where to Find Us
         </h1>
         <p className="w-[50rem] text-center font-[poppins]">
-          This is a space to share more about the business: who's behind it,
-          what it does and what this site has to offer. It’s an opportunity to
-          tell the story behind the business or describe a special service or
-          product it offers. You can use this section to share the company's
-          history or highlight a particular feature that sets it apart from
-          competitors.
+          Discover our refreshing beverage, expertly infused with premium hemp
+          extract for a unique and uplifting experience. Whether you're seeking
+          relaxation or a flavorful twist, our drink combines the natural
+          benefits of hemp with delicious fruit flavors. Visit us to enjoy a
+          taste that sets us apart in the world of infused beverages!
         </p>
 
-        <span className="mt-2 w-[10rem] text-center font-[poppins]">
-          500 Terry Francine Street San Francisco, CA 94158 123-456-7890
+        <span className="mt-2 w-[20rem] text-center font-[poppins]">
+          42, MG Road, Near Brigade Road,
+          <br />
+          Bengaluru, Karnataka 560001
+          <br />
+          +91-80-1234-5678
         </span>
       </div>
       <ContactUs /> {/*Contact Us component*/}

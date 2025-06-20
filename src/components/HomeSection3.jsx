@@ -56,10 +56,10 @@ const HomeSection3 = () => {
       {/* Promotional text */}
       <div className="p-6">
         <h1 className="mb-8 text-center font-[poppins] font-bold text-[#23022E]">
-          Find Your Flavor
+          Choose Your High
         </h1>
         <p className="text-center font-[Playwrite_HU] text-4xl font-bold text-[#23022E]">
-          Shop @Zigh Something Great in Every Sip
+          Shop @Zigh To Feel The New Heights
         </p>
       </div>
 

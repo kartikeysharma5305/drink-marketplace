@@ -18,9 +18,8 @@ const ContactUs = () => {
           Get in Touch
         </h1>
         <p className="text-center font-[poppins]">
-          Do you have any question request or comment? We’d love to hear from{" "}
-          <br />
-          you! Fill out the form, and we will get right back to you.
+          Write us all your queries and questions about this beverage. <br />
+          Fill out the form, and we will get right back to you.
         </p>
       </div>
 

@@ -29,10 +29,10 @@ const Header = () => {
             </Link>
             {/* Subscription placeholder link */}
             <Link
-              to="/shop#subscription"
+              to="/shop#pack"
               className="text-1rem font-['Playwrite_HU'] font-bold text-[#23022E] no-underline hover:text-sky-700"
             >
-              Subscription
+              Packs
             </Link>
             {/* About page link */}
             <Link

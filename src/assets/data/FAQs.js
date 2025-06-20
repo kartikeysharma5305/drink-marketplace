@@ -1,36 +1,32 @@
-// Data of FAOs question and answers
+// Data of FAQs question and answers for hemp-infused beverage
 const faqsData = [
   {
-    question: "What is an FAQ section?",
-    answer: `An FAQ section can be used to quickly answer common questions about your business like "Where do you ship to?", "What are your opening hours?", or "How can I book a service?". `,
+    question: "What is a hemp-infused beverage?",
+    answer: `A hemp-infused beverage is a drink that contains extracts from the hemp plant, including cannabinoids like THC and CBD, offering both flavor and unique effects.`,
   },
-
   {
-    question: "Why do FAQs matter?",
-    answer:
-      "FAQs are a great way to help site visitors find quick answers to common questions about your business and create a better navigation experience.",
+    question: "Will your beverage get me high?",
+    answer: `Yes, our beverage contains both THC and CBD. THC is the psychoactive compound responsible for the 'high' sensation, while CBD offers relaxing effects without intoxication.`,
   },
-
   {
-    question: "Where can I add my FAQs?",
-    answer:
-      "FAQs can be added to any page on your site or to your Wix mobile app, giving access to members on the go.",
+    question: "Is it legal to purchase and consume your hemp-infused beverage?",
+    answer: `Legality depends on your local laws regarding THC and CBD products. Please check your region's regulations before purchasing or consuming.`,
   },
-
   {
-    question: "How do I add a new question & answer?",
-    answer: `To add a new FAQ follow these steps: 
-    1. Manage FAQs from your site dashboard or in the Editor 
-    2. Add a new question & answer 
-    3. Assign your FAQ to a category 
-    4. Save and publish.
-    You can always come back and edit your FAQs.`,
+    question: "How much THC and CBD does each beverage contain?",
+    answer: `Each can is precisely formulated with a balanced ratio of THC and CBD. Please refer to the product label for exact milligram content per serving.`,
   },
-
   {
-    question: "How do I edit or remove the 'Frequently Asked Questions' title?",
-    answer: `You can edit the title from the FAQ 'Settings' tab in the Editor.  
-    To remove the title from your mobile app go to the 'Site & App' tab in your Owner's app and customize.`,
+    question: "How long does it take to feel the effects?",
+    answer: `Effects can typically be felt within 30–60 minutes after consumption, depending on your metabolism and whether you have eaten recently.`,
+  },
+  {
+    question: "Can I drive after drinking your hemp-infused beverage?",
+    answer: `No. Because our beverage contains THC, you should not drive or operate heavy machinery after consumption.`,
+  },
+  {
+    question: "Are there any side effects?",
+    answer: `Possible side effects include drowsiness, dry mouth, or mild euphoria. Start with a small amount to gauge your tolerance.`,
   },
 ];
 

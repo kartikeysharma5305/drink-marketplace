@@ -8,6 +8,7 @@ import can7 from "../assets/images/can7.png";
 import can8 from "../assets/images/can8.png";
 import can9 from "../assets/images/can9.png";
 import can10 from "../assets/images/can10.png";
+import packImage from "../assets/images/pack-image.png";
 
 // Data of all the products on the website
 // with their ( id , title , discount , price , description , image , category)
@@ -219,9 +220,8 @@ const allProducts = [
     price: 500,
     description:
       "A premium subscription pack of lush blackberry and hemp, delivering bold flavor monthly.",
-    image:
-      "https://static.wixstatic.com/media/c837a6_425541eb857646d996333177d6811c2b~mv2.jpg/v1/fill/w_696,h_929,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_425541eb857646d996333177d6811c2b~mv2.jpg",
-    category: "subscription",
+    image: packImage,
+    category: "pack",
   },
   {
     id: 22,
@@ -230,9 +230,8 @@ const allProducts = [
     price: 800,
     description:
       "An exclusive subscription for blackberry-hemp lovers, ensuring a steady, premium supply.",
-    image:
-      "https://static.wixstatic.com/media/c837a6_774cb84fb198431084c1b2e13fb86353~mv2.jpg/v1/fill/w_696,h_929,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_774cb84fb198431084c1b2e13fb86353~mv2.jpg",
-    category: "subscription",
+    image: packImage,
+    category: "pack",
   },
   {
     id: 23,
@@ -241,9 +240,8 @@ const allProducts = [
     price: 1000,
     description:
       "The ultimate blackberry-hemp subscription, delivering luxury flavor to your door.",
-    image:
-      "https://static.wixstatic.com/media/c837a6_05e53a8f90be4c708b68c500fe92fc14~mv2.jpg/v1/fill/w_618,h_825,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_05e53a8f90be4c708b68c500fe92fc14~mv2.jpg",
-    category: "subscription",
+    image: packImage,
+    category: "pack",
   },
 ];
 

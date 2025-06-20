@@ -29,7 +29,7 @@ const HeroSection = () => {
         {/* Button linking to the shop page */}
         <Link to={"/shop#all"}>
           <ReusableButton
-            text={"Explore Flavour"}
+            text={"Bhang Drinks"}
             styles={
               "bg-red-600 mr-[10rem] hover:bg-white hover:text-red-600 hover:border-[shadow-red-600] hover:shadow-red-600"
             }
