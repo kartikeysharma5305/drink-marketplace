@@ -1,9 +1,9 @@
 import { useLocation } from "react-router-dom";
-import blueberryImg from "../assets/images/blueberryImg.png";
-import grapesImg from "../assets/images/grapes-image.png";
-import hempLeavesImg from "../assets/images/hemp-leaves.png";
-import rasberryImg from "../assets/images/raspberry-image.png";
-import watermelonImg from "../assets/images/watermelon-image.png";
+import blueberryImg from "../assets/images/blueberryImg.avif";
+import grapesImg from "../assets/images/grapes-image.avif";
+import hempLeavesImg from "../assets/images/hemp-leaves.avif";
+import rasberryImg from "../assets/images/raspberry-image.avif";
+import watermelonImg from "../assets/images/watermelon-image.avif";
 import ContactUs from "../components/ContactUs";
 import Faq from "../components/Faq";
 import InfiniteSlider from "../components/InfiniteSlider";

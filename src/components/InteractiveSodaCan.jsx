@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import heroCan from "../assets/images/interactive-soda-can.avif";
-import hempLeaf from "../assets/images/hemp-leaf.png";
+import hempLeaf from "../assets/images/hemp-leaf.avif";
+import heroCanShadow from "../assets/images/soda-can-shadow.svg";
 
 // InteractiveSodaCan component displays a soda can with interactive parallax effects
 const InteractiveSodaCan = () => {
@@ -91,6 +92,13 @@ const InteractiveSodaCan = () => {
           src={heroCan}
           alt="Soda Can"
           className="relative z-10 w-[15rem] transition-transform duration-100"
+        />
+        {/* Soda can shadow image */}
+        <img
+          ref={bgRef}
+          src={heroCanShadow}
+          alt="Soda Can Shadow"
+          className="pointer-events-none absolute left-1/2 z-0 w-[16rem] -translate-x-1/2"
         />
       </div>
 

@@ -1,5 +1,5 @@
 import ReusableButton from "./ReusableButton";
-import divider from "../assets/images/footer-divider.png";
+import divider from "../assets/images/footer-divider.avif";
 import { Link } from "react-router-dom";
 
 // HomeSection4 component displays a section highlighting best selling drinks

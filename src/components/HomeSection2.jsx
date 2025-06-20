@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import can1 from "../assets/images/can1.avif";
+import can1 from "../assets/images/can4.avif";
+import can2 from "../assets/images/can5.avif";
+import can3 from "../assets/images/can3.avif";
 import ReusableButton from "./ReusableButton";
 import { Link } from "react-router-dom";
 
@@ -113,7 +115,7 @@ const HomeSection2 = () => {
           <img
             ref={addToImageRefs}
             key="image1"
-            className="mr-4 w-[10rem]"
+            className="mr-4 w-[12rem]"
             src={can1}
             alt="Hero Can"
           />,
@@ -139,8 +141,8 @@ const HomeSection2 = () => {
             <img
               ref={addToImageRefs}
               key="image2"
-              className="w-[10rem]"
-              src={can1}
+              className="w-[12rem]"
+              src={can2}
               alt="Hero Can"
             />,
           ],
@@ -152,8 +154,8 @@ const HomeSection2 = () => {
           <img
             ref={addToImageRefs}
             key="image3"
-            className="mr-4 w-[10rem]"
-            src={can1}
+            className="mr-4 w-[12rem]"
+            src={can3}
             alt="Hero Can"
           />,
           "Natural",

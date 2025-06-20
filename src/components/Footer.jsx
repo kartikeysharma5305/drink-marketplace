@@ -1,5 +1,5 @@
 import svgBackground from "../assets/images/backgroundSvg";
-import footerDivider from "../assets/images/footer-divider.png";
+import footerDivider from "../assets/images/footer-divider.avif";
 import { Link } from "react-router-dom";
 
 const Footer = () => {

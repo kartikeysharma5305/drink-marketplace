@@ -1,6 +1,6 @@
 import React from "react";
-import upwardDivider from "../assets/images/contact-us-up-divider.png";
-import downwardDivider from "../assets/images/contact-us-down-divider.png";
+import upwardDivider from "../assets/images/contact-us-up-divider.avif";
+import downwardDivider from "../assets/images/contact-us-down-divider.avif";
 import InfiniteSlider from "./InfiniteSlider";
 
 const ContactUs = () => {

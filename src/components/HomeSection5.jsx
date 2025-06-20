@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 import InfiniteSlider from "./InfiniteSlider";
-import blueberryImg from "../assets/images/blueberryImg.png";
-import grapesImg from "../assets/images/grapes-image.png";
-import rasberryImg from "../assets/images/raspberry-image.png";
-import watermelonImg from "../assets/images/watermelon-image.png";
+import blueberryImg from "../assets/images/blueberryImg.avif";
+import grapesImg from "../assets/images/grapes-image.avif";
+import rasberryImg from "../assets/images/raspberry-image.avif";
+import watermelonImg from "../assets/images/watermelon-image.avif";
 import ReusableButton from "./ReusableButton";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";

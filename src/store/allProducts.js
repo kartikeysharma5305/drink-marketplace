@@ -1,14 +1,14 @@
 // src/store/productSlice.js
-import can1 from "../assets/images/can1.png";
-import can2 from "../assets/images/can2.png";
-import can3 from "../assets/images/can3.png";
-import can4 from "../assets/images/can4.png";
-import can5 from "../assets/images/can5.png";
-import can7 from "../assets/images/can7.png";
-import can8 from "../assets/images/can8.png";
-import can9 from "../assets/images/can9.png";
-import can10 from "../assets/images/can10.png";
-import packImage from "../assets/images/pack-image.png";
+import can1 from "../assets/images/can1.avif";
+import can2 from "../assets/images/can2.avif";
+import can3 from "../assets/images/can3.avif";
+import can4 from "../assets/images/can4.avif";
+import can5 from "../assets/images/can5.avif";
+import can7 from "../assets/images/can7.avif";
+import can8 from "../assets/images/can8.avif";
+import can9 from "../assets/images/can9.avif";
+import can10 from "../assets/images/can10.avif";
+import packImage from "../assets/images/pack-image.avif";
 
 // Data of all the products on the website
 // with their ( id , title , discount , price , description , image , category)

@@ -1,7 +1,7 @@
 // src/components/HomeSection3.js
-import sectionDivider from "../assets/images/home-section-3-divider.png";
+import sectionDivider from "../assets/images/home-section-3-divider.avif";
 import ReusableButton from "./ReusableButton";
-import footerDivider from "../assets/images/footer-divider.png";
+import footerDivider from "../assets/images/footer-divider.avif";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { increment } from "../store/cartSlice";
