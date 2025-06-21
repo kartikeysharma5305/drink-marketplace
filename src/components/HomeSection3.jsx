@@ -24,47 +24,49 @@ const HomeSection3 = () => {
       </h1>
 
       {/* Category buttons */}
-      <div className="mb-8 flex justify-center gap-16">
-        <Link to={"/shop#exotic"}>
-          <ReusableButton
-            text="Exotic"
-            styles="text-white bg-[#D71919] hover:bg-[#F0F0F0] hover:text-[#D71919] hover:shadow-[#D71919] hover:border-[#D71919]"
-            iconColor="white"
-            buttonSize={2}
-          />
-        </Link>
-
-        <Link to={"/shope#sour"}>
-          <ReusableButton
-            text="Sour"
-            styles="text-white bg-[#0869D9] hover:bg-[#F0F0F0] hover:text-[#0869D9] hover:shadow-[#0869D9] hover:border-[#0869D9]"
-            iconColor="white"
-            buttonSize={2}
-          />
-        </Link>
-
-        <Link to={"/shop#sweet"}>
-          <ReusableButton
-            text="Sweet"
-            styles="text-white bg-[#9A4C95] hover:bg-[#F0F0F0] hover:text-[#9A4C95] hover:shadow-[#9A4C95] hover:border-[#9A4C95]"
-            iconColor="white"
-            buttonSize={2}
-          />
-        </Link>
+      <div className="mb-8 flex flex-wrap justify-center gap-4 px-2 sm:flex-row sm:gap-16">
+        <div className="flex w-full flex-row justify-center gap-4 sm:w-auto">
+          <Link to={"/shop#exotic"} className="max-w-[10rem] flex-1">
+            <ReusableButton
+              text="Exotic"
+              styles="text-white bg-[#D71919] hover:bg-[#F0F0F0] hover:text-[#D71919] hover:shadow-[#D71919] hover:border-[#D71919]"
+              iconColor="white"
+              buttonSize={2}
+            />
+          </Link>
+          <Link to={"/shope#sour"} className="max-w-[10rem] flex-1">
+            <ReusableButton
+              text="Sour"
+              styles="text-white bg-[#0869D9] hover:bg-[#F0F0F0] hover:text-[#0869D9] hover:shadow-[#0869D9] hover:border-[#0869D9]"
+              iconColor="white"
+              buttonSize={2}
+            />
+          </Link>
+        </div>
+        <div className="flex w-full flex-row justify-center gap-4 sm:w-auto">
+          <Link to={"/shop#sweet"} className="max-w-[10rem] flex-1">
+            <ReusableButton
+              text="Sweet"
+              styles="text-white bg-[#9A4C95] hover:bg-[#F0F0F0] hover:text-[#9A4C95] hover:shadow-[#9A4C95] hover:border-[#9A4C95]"
+              iconColor="white"
+              buttonSize={2}
+            />
+          </Link>
+        </div>
       </div>
 
       {/* Promotional text */}
-      <div className="p-6">
-        <h1 className="mb-8 text-center font-[poppins] font-bold text-[#23022E]">
+      <div className="p-2 sm:p-6">
+        <h1 className="mb-4 text-center font-[poppins] text-lg font-bold text-[#23022E] sm:mb-8 sm:text-2xl">
           Choose Your High
         </h1>
-        <p className="text-center font-[Playwrite_HU] text-4xl font-bold text-[#23022E]">
+        <p className="text-center font-[Playwrite_HU] text-xl font-bold text-[#23022E] sm:text-4xl">
           Shop @Zigh To Feel The New Heights
         </p>
       </div>
 
       {/* Featured products grid */}
-      <div className="flex flex-row flex-wrap justify-center">
+      <div className="grid grid-cols-2 gap-4 px-2 sm:flex-none sm:grid-cols-4 sm:gap-6">
         {/* Display first 4 products */}
         {products.slice(0, 4).map((product) => {
           // Calculate discounted price if applicable
@@ -75,11 +77,11 @@ const HomeSection3 = () => {
           return (
             <div
               key={product.id}
-              className="flex flex-col items-center justify-center p-6"
+              className="flex flex-col items-center justify-center p-3 sm:p-6"
             >
               {/* Product card with link to product detail page */}
               <Link to={`/product/${product.id}`}>
-                <div className="h-[20rem] w-[16rem] rounded-2xl bg-[#FFFFFF] p-4 hover:bg-red-600">
+                <div className="h-[13rem] w-[9.5rem] rounded-2xl bg-[#FFFFFF] p-2 hover:bg-red-600 sm:h-[20rem] sm:w-[16rem] sm:p-4">
                   {/* Show "Sale" badge if product has discount */}
                   <p className="inline-block rounded-full bg-[#0869D9] p-2 font-[Playwrite_HU] font-bold text-white">
                     {product.discount > 0 ? "Sale" : ""}
@@ -87,7 +89,7 @@ const HomeSection3 = () => {
                   {/* Product image */}
                   <div className="flex justify-center">
                     <img
-                      className="h-auto w-[12rem] rounded-2xl"
+                      className="h-auto w-[6.5rem] rounded-2xl sm:w-[12rem]"
                       src={product.image}
                       alt={product.title}
                     />
@@ -95,18 +97,18 @@ const HomeSection3 = () => {
                 </div>
 
                 {/* Product title */}
-                <h1 className="mt-4 text-center font-[poppins] font-bold text-[#23022E] hover:text-blue-500">
+                <h1 className="mt-2 text-center font-[poppins] text-xs font-bold text-[#23022E] hover:text-blue-500 sm:mt-4 sm:text-base">
                   {product.title}
                 </h1>
 
                 {/* Product price and discount */}
                 <div className="space-x-2 text-center">
                   {product.discount > 0 && (
-                    <span className="text-gray-500 line-through">
+                    <span className="text-xs text-gray-500 line-through sm:text-base">
                       ₹{product.price.toFixed(2)}
                     </span>
                   )}
-                  <span className="text-blue-600">
+                  <span className="text-sm text-blue-600 sm:text-lg">
                     ₹{discountedPrice.toFixed(2)}
                   </span>
                 </div>
@@ -114,7 +116,7 @@ const HomeSection3 = () => {
 
               {/* Add to Cart button */}
               <button
-                className="mt-2 cursor-pointer rounded-full bg-[#23022E] px-4 py-2 font-[Playwrite_HU] font-bold text-white hover:bg-[#0869D9]"
+                className="xs:w-[8.5rem] mt-2 w-[7.5rem] cursor-pointer rounded-full bg-[#23022E] px-2 py-2 font-[Playwrite_HU] text-xs font-bold text-white hover:bg-[#0869D9] sm:w-auto sm:px-4 sm:text-base"
                 onClick={() =>
                   dispatch(
                     increment({
@@ -135,7 +137,11 @@ const HomeSection3 = () => {
       </div>
 
       {/* Footer divider image */}
-      <img className="mt-10" src={footerDivider} alt="Footer divider" />
+      <img
+        className="mt-10 mb-[-0.1rem] w-full"
+        src={footerDivider}
+        alt="Footer divider"
+      />
     </section>
   );
 };

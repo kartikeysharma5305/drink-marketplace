@@ -32,20 +32,27 @@ const InfiniteSlider = ({ sliderText }) => {
         /* Keyframes for sliding animation: moves items to the left */
         @keyframes scrollLeft {
           to {
-            left: -200px;
+            left: -120px;
+          }
+        }
+        @media (min-width: 640px) {
+          @keyframes scrollLeft {
+            to {
+              left: -200px;
+            }
           }
         }
 
         /* Base styles for each slider item */
         .infinite-slider .item {
-          width: 200px;
-          height: 150px;
+          width: 120px;
+          height: 70px;
           background-color: #23022E;
           border-radius: 6px;
           position: absolute;
-          left: max(calc(300px * 8), 100%); /* Start position off-screen to the right */
+          left: max(calc(180px * 8), 100%);
           animation-name: scrollLeft;
-          animation-duration: 30s;
+          animation-duration: 20s;
           animation-timing-function: linear;
           animation-iteration-count: infinite;
           display: flex;
@@ -53,39 +60,42 @@ const InfiniteSlider = ({ sliderText }) => {
           justify-content: center;
           color: white;
           font:bold;
-          font-size: 2rem;
+          font-size: 1.1rem;
           font-weight: 600;
+        }
+        @media (min-width: 640px) {
+          .infinite-slider .item {
+            width: 200px;
+            height: 150px;
+            left: max(calc(300px * 8), 100%);
+            font-size: 2rem;
+            animation-duration: 30s;
+          }
         }
 
         /* Assign different animation delays to each item for even spacing */
-        .infinite-slider .item1 {
-          animation-delay: calc(30s / 8 * (8 - 1) * -1);
-        }
-        .infinite-slider .item2 {
-          animation-delay: calc(30s / 8 * (8 - 2) * -1);
-        }
-        .infinite-slider .item3 {
-          animation-delay: calc(30s / 8 * (8 - 3) * -1);
-        }
-        .infinite-slider .item4 {
-          animation-delay: calc(30s / 8 * (8 - 4) * -1);
-        }
-        .infinite-slider .item5 {
-          animation-delay: calc(30s / 8 * (8 - 5) * -1);
-        }
-        .infinite-slider .item6 {
-          animation-delay: calc(30s / 8 * (8 - 6) * -1);
-        }
-        .infinite-slider .item7 {
-          animation-delay: calc(30s / 8 * (8 - 7) * -1);
-        }
-        .infinite-slider .item8 {
-          animation-delay: calc(30s / 8 * (8 - 8) * -1);
+        .infinite-slider .item1 { animation-delay: calc(20s / 8 * (8 - 1) * -1); }
+        .infinite-slider .item2 { animation-delay: calc(20s / 8 * (8 - 2) * -1); }
+        .infinite-slider .item3 { animation-delay: calc(20s / 8 * (8 - 3) * -1); }
+        .infinite-slider .item4 { animation-delay: calc(20s / 8 * (8 - 4) * -1); }
+        .infinite-slider .item5 { animation-delay: calc(20s / 8 * (8 - 5) * -1); }
+        .infinite-slider .item6 { animation-delay: calc(20s / 8 * (8 - 6) * -1); }
+        .infinite-slider .item7 { animation-delay: calc(20s / 8 * (8 - 7) * -1); }
+        .infinite-slider .item8 { animation-delay: calc(20s / 8 * (8 - 8) * -1); }
+        @media (min-width: 640px) {
+          .infinite-slider .item1 { animation-delay: calc(30s / 8 * (8 - 1) * -1); }
+          .infinite-slider .item2 { animation-delay: calc(30s / 8 * (8 - 2) * -1); }
+          .infinite-slider .item3 { animation-delay: calc(30s / 8 * (8 - 3) * -1); }
+          .infinite-slider .item4 { animation-delay: calc(30s / 8 * (8 - 4) * -1); }
+          .infinite-slider .item5 { animation-delay: calc(30s / 8 * (8 - 5) * -1); }
+          .infinite-slider .item6 { animation-delay: calc(30s / 8 * (8 - 6) * -1); }
+          .infinite-slider .item7 { animation-delay: calc(30s / 8 * (8 - 7) * -1); }
+          .infinite-slider .item8 { animation-delay: calc(30s / 8 * (8 - 8) * -1); }
         }
       `}</style>
 
       {/* Main slider container with relative positioning and overflow hidden */}
-      <div className="infinite-slider relative mx-auto mt-[5rem] h-[150px] w-[90%] max-w-[1536px] overflow-hidden">
+      <div className="infinite-slider relative mx-auto mt-8 h-[70px] w-[96%] max-w-[480px] overflow-hidden sm:mt-[5rem] sm:h-[150px] sm:w-[90%] sm:max-w-[1536px]">
         {/* Render each slider item with its unique class and text */}
         {items.map((item) => (
           <div

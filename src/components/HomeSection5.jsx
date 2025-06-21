@@ -51,46 +51,46 @@ const HomeSection5 = () => {
       {/* Fruit images grid with animation refs */}
       <div
         ref={imagesRef}
-        className="grid grid-cols-4 grid-rows-1 items-center justify-center"
+        className="grid grid-cols-4 grid-rows-2 items-center justify-center gap-4 sm:grid-cols-4 sm:grid-rows-1"
       >
         <img
           ref={(el) => (imgRefs.current[0] = el)}
-          className="mt-14 w-[13rem]"
+          className="mt-6 w-[7rem] sm:mt-14 sm:w-[13rem]"
           src={blueberryImg}
           alt="Blueberry illustration for About Us section"
         />
         <img
           ref={(el) => (imgRefs.current[1] = el)}
-          className="z-0 mb-50 w-[13rem]"
+          className="z-0 w-[7rem] sm:mb-50 sm:w-[13rem]"
           src={grapesImg}
           alt="Grapes illustration for About Us section"
         />
         <img
           ref={(el) => (imgRefs.current[2] = el)}
-          className="z-0 mb-30 w-[10rem]"
+          className="z-0 w-[6rem] sm:mb-30 sm:w-[10rem]"
           src={rasberryImg}
           alt="Raspberry illustration for About Us section"
         />
         <img
           ref={(el) => (imgRefs.current[3] = el)}
-          className="z-0 w-[15rem]"
+          className="z-0 w-[8rem] sm:w-[15rem]"
           src={watermelonImg}
           alt="Watermelon slice illustration for About Us section"
         />
       </div>
 
       {/* About section text and button */}
-      <div className="flex flex-col items-center justify-center text-[#23022E]">
+      <div className="flex flex-col items-center justify-center px-2 text-[#23022E]">
         {/* Section heading */}
-        <h1 className="mt-[-10rem] mb-6 font-[poppins] text-[1.15rem] font-bold">
+        <h1 className="mt-[-9rem] mb-4 font-[poppins] text-base font-bold sm:mt-[-10rem] sm:mb-6 sm:text-[1.15rem]">
           About
         </h1>
         {/* Section subheading */}
-        <p className="mb-10 font-[Playwrite_HU] text-3xl font-bold">
+        <p className="mb-4 font-[Playwrite_HU] text-xl font-bold sm:mb-10 sm:text-3xl">
           How We Make Our Drinks
         </p>
         {/* Section description */}
-        <p className="mb-6 w-[40rem] text-center font-[poppins]">
+        <p className="mb-6 w-full max-w-lg text-center font-[poppins] text-sm sm:w-[40rem] sm:text-base">
           Our drinks are crafted using premium hemp extract, carefully blended
           to deliver a unique and uplifting experience. We focus on quality and
           consistency, ensuring every sip provides a smooth, enjoyable high
@@ -102,7 +102,7 @@ const HomeSection5 = () => {
           <ReusableButton
             text={"Know More"}
             styles={
-              "bg-[#D71919] mb-10 text-[#23022E] hover:bg-white hover:shadow-[#D71919] hover:text-[#D71919]"
+              "bg-[#D71919] mb-8 text-[#23022E] hover:bg-white hover:shadow-[#D71919] hover:text-[#D71919] sm:mb-10"
             }
             buttonSize={1}
             iconColor={"white"}

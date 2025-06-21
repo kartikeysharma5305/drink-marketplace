@@ -53,33 +53,36 @@ const InfiniteCarousel = () => {
     <div className="w-full overflow-hidden">
       <div
         ref={carouselRef}
-        className="animate-infinite-slide flex"
+        className="animate-infinite-slide flex overflow-hidden whitespace-nowrap"
         style={{
           animationDuration: "10s", // Duration of the infinite scroll animation
-          width: `${items.length * 25}%`, // Width based on number of items
+          width: "max-content",
         }}
       >
         {/* Render each carousel item */}
         {carouselItems.map((item) => (
           <div
             key={item.id}
-            className="font-poppins flex flex-shrink-0 items-center justify-center gap-4 bg-[#23022E] font-normal text-white"
+            className="flex flex-shrink-0 items-center justify-center gap-4 bg-[#23022E] px-6 py-2 font-[poppins] text-base font-medium text-white md:text-lg"
+            style={{ minWidth: "220px", maxWidth: "100vw" }}
           >
-            {/* Icon displayed before the content */}
-            <p>
+            {/* Star icon */}
+            <span className="inline-block">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                height="24px"
-                viewBox="0 -960 960 960"
-                width="24px"
-                fill="rgb(248, 206, 53)"
+                width="20"
+                height="20"
+                fill="gold"
+                viewBox="0 0 24 24"
               >
-                <path d="m422-232 207-248H469l29-227-185 267h139l-30 208ZM320-80l40-280H160l360-520h80l-40 320h240L400-80h-80Zm151-390Z" />
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z" />
               </svg>
-            </p>
+            </span>
 
             {/* Carousel item content */}
-            <p className="font-semi- p-2">{item.content}</p>
+            <span className="xs:text-sm block truncate text-xs sm:text-base md:text-lg">
+              {item.content}
+            </span>
           </div>
         ))}
       </div>

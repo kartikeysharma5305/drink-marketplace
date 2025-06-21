@@ -45,7 +45,7 @@ const Faq = () => {
                   openIndex === index ? "max-h-96" : "max-h-0"
                 }`}
               >
-                <span className="block max-w-[65rem] text-left font-[poppins] text-sm font-bold text-[#23022E]">
+                <span className="mt-3 block max-w-[65rem] text-left font-[poppins] text-sm font-bold text-[#23022E]">
                   {faq.answer}
                 </span>
               </div>

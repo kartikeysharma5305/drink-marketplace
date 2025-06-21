@@ -121,34 +121,34 @@ const Shop = () => {
       </section>
 
       {/* Page heading and description */}
-      <div>
-        <h1 className="mt-10 text-center font-[poppins] font-bold text-[#23022E]">
-          {selectedCategory}
+      <div className="px-2 sm:px-0">
+        <h1 className="mt-6 text-center font-[poppins] text-lg font-bold text-[#23022E] sm:mt-10 sm:text-2xl">
+          {(selectedCategory || "All Products").toUpperCase()}
         </h1>
-        <p className="mt-10 mb-10 text-center font-[poppins] text-[#23022E]">
-          "Sparkling hemp-infused beverages offering a refreshing, earthy twist.{" "}
-          <br />
+        <p className="mx-auto mt-4 mb-6 max-w-md text-center font-[poppins] text-xs leading-snug text-[#23022E] sm:mt-10 sm:mb-10 sm:text-base">
+          Sparkling hemp-infused beverages offering a refreshing, earthy twist.
+          <br className="xs:block hidden" />
           Crafted with hemp leaf extract, these drinks provide a unique, legal,
-          and revitalizing experience."
+          and revitalizing experience.
         </p>
       </div>
 
       {/* Main container */}
-      <div className="container mx-auto p-4 font-[poppins] text-[#23022E]">
-        <div className="flex flex-col md:flex-row">
+      <div className="container mx-auto p-2 font-[poppins] text-[#23022E] sm:p-4">
+        <div className="flex flex-col items-start gap-2 md:flex-row md:gap-0">
           {/* Sidebar for category and filter */}
-          <div className="w-full rounded-lg p-4 md:w-1/4">
-            <h2 className="mb-4 text-lg font-bold">Browse by</h2>
-
-            {/* Category selection list */}
-            <ul className="mb-8">
+          <div className="mb-2 w-full rounded-lg bg-white/90 p-2 shadow-sm sm:p-4 md:mb-0 md:w-1/4 md:self-start">
+            <h2 className="mb-2 text-base font-bold sm:mb-4 sm:text-lg">
+              Browse by
+            </h2>
+            <ul className="mb-4 grid grid-cols-3 gap-2 sm:mb-8 sm:block sm:gap-0">
               {["All Products", "Exotic", "Sour", "Sweet", "Pack", "Sale"].map(
                 (category) => (
-                  <li className="mb-2" key={category}>
+                  <li className="mb-0 sm:mb-2" key={category}>
                     <button
-                      className={`cursor-pointer text-gray-700 hover:text-[#23022E] ${
+                      className={`rounded-full px-3 py-1 text-xs font-medium text-gray-700 transition hover:bg-[#f3f3f7] hover:text-[#23022E] sm:w-full sm:rounded-md sm:px-2 sm:py-2 sm:text-left sm:text-base ${
                         selectedCategory === category.toLowerCase()
-                          ? "font-bold"
+                          ? "bg-[#23022E] font-bold text-white"
                           : ""
                       }`}
                       onClick={() => handleCategoryClick(category)}
@@ -159,14 +159,18 @@ const Shop = () => {
                 ),
               )}
             </ul>
-            <h2 className="mb-4 text-lg font-bold">Filter by</h2>
+            <h2 className="mb-2 text-base font-bold sm:mb-4 sm:text-lg">
+              Filter by
+            </h2>
             <div>
-              {/* Price range slider */}
-              <label className="block text-gray-700" htmlFor="price">
+              <label
+                className="block text-xs text-gray-700 sm:text-sm"
+                htmlFor="price"
+              >
                 Price
               </label>
               <input
-                className="mt-2 w-full cursor-pointer"
+                className="mt-1 w-full cursor-pointer accent-[#23022E] sm:mt-2"
                 id="price"
                 max="1000"
                 min="100"
@@ -175,7 +179,7 @@ const Shop = () => {
                 value={maxPrice}
                 onChange={handlePriceChange}
               />
-              <div className="mt-2 flex justify-between text-gray-700">
+              <div className="mt-1 flex justify-between text-xs text-gray-700 sm:mt-2 sm:text-sm">
                 <span>₹{minPrice}</span>
                 <span>₹{maxPrice}</span>
               </div>
@@ -192,7 +196,7 @@ const Shop = () => {
               <div className="relative">
                 {/* Sort dropdown */}
                 <select
-                  className="cursor-pointer appearance-none rounded-md py-2 pr-8 pl-3 font-[poppins] text-[#23022E]"
+                  className="cursor-pointer appearance-none rounded-md border-1 py-2 pr-8 pl-3 font-[poppins] text-[#23022E]"
                   value={sortOption}
                   onChange={handleSortChange}
                 >
@@ -209,7 +213,7 @@ const Shop = () => {
             </div>
 
             {/* Product grid */}
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="xs:gap-3 grid grid-cols-2 gap-2 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
               {/* Render each product card */}
               {sortedProducts.map((product) => {
                 const discountedPrice = product.discount
@@ -217,20 +221,20 @@ const Shop = () => {
                   : product.price;
                 return (
                   <div
-                    className="flex flex-col items-center justify-center"
+                    className="flex flex-col items-center justify-center p-1 sm:p-2"
                     key={product.id}
                   >
                     {/* Product link and image */}
                     <Link to={`/product/${product.id}`}>
-                      <div className="flex flex-col items-center justify-center p-6">
-                        <div className="h-[20rem] w-[16rem] rounded-2xl bg-[#FFFFFF] p-4 hover:bg-red-600">
+                      <div className="flex flex-col items-center justify-center p-2 sm:p-4">
+                        <div className="h-[11rem] w-[8.5rem] rounded-2xl bg-[#FFFFFF] p-2 transition-colors hover:bg-red-600 sm:h-[20rem] sm:w-[16rem] sm:p-4">
                           {/* Sale badge */}
-                          <p className="inline-block rounded-full bg-[#0869D9] p-2 font-[Playwrite_HU] font-bold text-white">
+                          <p className="inline-block rounded-full bg-[#0869D9] p-2 font-[Playwrite_HU] text-xs font-bold text-white sm:text-base">
                             {product.discount > 0 ? "Sale" : ""}
                           </p>
                           <div className="flex justify-center">
                             <img
-                              className="h-auto w-[12rem] rounded-2xl"
+                              className="h-auto w-[6.5rem] rounded-2xl sm:w-[12rem]"
                               src={product.image}
                               alt={product.title}
                             />
@@ -239,18 +243,18 @@ const Shop = () => {
                       </div>
 
                       {/* Product title */}
-                      <h1 className="text-center font-[poppins] font-bold text-[#23022E] hover:text-[#0869D9]">
+                      <h1 className="text-center text-xs font-bold text-[#23022E] hover:text-[#0869D9] sm:text-base">
                         {product.title}
                       </h1>
 
                       {/* Product price and discount */}
                       <div className="space-x-2 text-center">
                         {product.discount > 0 && (
-                          <span className="text-gray-500 line-through">
+                          <span className="text-xs text-gray-500 line-through sm:text-base">
                             ₹{product.price.toFixed(2)}
                           </span>
                         )}
-                        <span className="text-blue-600">
+                        <span className="text-sm font-bold text-blue-600 sm:text-lg">
                           ₹{discountedPrice.toFixed(2)}
                         </span>
                       </div>
@@ -269,7 +273,7 @@ const Shop = () => {
                           }),
                         )
                       }
-                      className="mt-2 cursor-pointer rounded-full bg-[#23022E] px-4 py-2 font-[Playwrite_HU] font-bold text-white hover:bg-[#0869D9]"
+                      className="xs:w-[8.5rem] mt-2 w-[7.5rem] cursor-pointer rounded-full bg-[#23022E] px-2 py-2 font-[Playwrite_HU] text-xs font-bold text-white hover:bg-[#0869D9] sm:w-auto sm:px-4 sm:text-base"
                     >
                       Add to Cart
                     </button>

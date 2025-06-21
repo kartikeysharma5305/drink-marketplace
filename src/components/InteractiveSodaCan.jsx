@@ -81,31 +81,29 @@ const InteractiveSodaCan = () => {
   return (
     <>
       <div
-        className="relative z-0 flex h-screen items-center justify-center"
+        className="relative z-0 flex h-[14rem] items-center justify-center sm:h-screen"
         style={{ transform: "rotate(-10deg)" }} // Slight rotation for visual interest
       >
-        {/* SVG Background shape behind the can */}
-
         {/* Main soda can image */}
         <img
           ref={canRef}
           src={heroCan}
           alt="Soda Can"
-          className="relative z-10 w-[15rem] transition-transform duration-100"
+          className="xs:w-[8rem] relative z-10 w-[10rem] transition-transform duration-100 sm:w-[13rem] md:w-[15rem]"
         />
         {/* Soda can shadow image */}
         <img
           ref={bgRef}
           src={heroCanShadow}
           alt="Soda Can Shadow"
-          className="pointer-events-none absolute left-1/2 z-0 w-[16rem] -translate-x-1/2"
+          className="xs:w-[9rem] pointer-events-none absolute left-1/2 z-0 w-[11rem] -translate-x-1/2 sm:w-[14rem] md:w-[18rem]"
         />
       </div>
 
-      {/* Decorative hemp leaf image, positioned absolutely */}
+      {/* Decorative hemp leaf image, positioned absolutely, hidden on mobile */}
       <img
         ref={hempLeafRef}
-        className="absolute right-0 z-0 mr-[10rem] mb-[15rem] w-[20rem]"
+        className="xs:w-[8rem] absolute right-0 z-0 mr-2 mb-16 hidden w-[6rem] sm:mr-[6rem] sm:mb-[10rem] sm:block sm:w-[14rem] md:mr-[10rem] md:mb-[15rem] md:w-[20rem]"
         src={hempLeaf}
         alt=""
       />

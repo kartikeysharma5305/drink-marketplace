@@ -31,30 +31,36 @@ const About = () => {
       <InfiniteSlider sliderText={"About Us"} />{" "}
       {/* Infinite Slider Component
        */}
-      <div id="heading" className="grid grid-cols-4 grid-rows-1 justify-center">
+      <div
+        id="heading"
+        className="grid grid-cols-4 grid-rows-1 justify-center gap-2 sm:grid-cols-4 sm:grid-rows-1"
+      >
         <img
-          className="w-[13rem] translate-y-[3rem]"
+          className="xs:w-[9rem] w-[7rem] translate-y-[1.5rem] sm:w-[13rem] sm:translate-y-[3rem]"
           src={blueberryImg}
           alt="blueberry"
         />
         <img
-          className="z-0 w-[13rem] translate-y-[-8rem]"
+          className="xs:w-[9rem] z-0 w-[7rem] translate-y-[-4rem] sm:w-[13rem] sm:translate-y-[-8rem]"
           src={grapesImg}
           alt="grapes"
         />
-
         <img
-          className="z-0 w-[10rem] translate-y-[-8rem]"
+          className="xs:w-[8rem] z-0 w-[6rem] translate-y-[-4rem] sm:w-[10rem] sm:translate-y-[-8rem]"
           src={rasberryImg}
           alt="rasberry"
         />
-        <img className="w-[13rem]" src={watermelonImg} alt="watermelon" />
+        <img
+          className="xs:w-[9rem] w-[7rem] sm:w-[13rem]"
+          src={watermelonImg}
+          alt="watermelon"
+        />
       </div>
       <div className="text-center">
-        <h1 className="mb-6 text-center font-[Playwrite_HU] text-3xl font-bold text-[#23022E]">
+        <h1 className="xs:text-3xl mb-6 text-center font-[Playwrite_HU] text-2xl font-bold text-[#23022E] sm:text-3xl">
           All About The Making Process
         </h1>
-        <p className="mx-auto w-[40rem] font-[poppins]">
+        <p className="xs:text-base mx-auto w-[90vw] max-w-[40rem] px-2 font-[poppins] text-sm sm:w-[40rem]">
           Our hemp-infused beverage is crafted to deliver a unique, uplifting
           experience with every sip. We start by carefully extracting premium
           hemp to ensure purity and potency. The extract is then blended with
@@ -68,7 +74,7 @@ const About = () => {
       </div>
       <div
         id="find-us"
-        className="mt-40 flex flex-col items-center justify-center"
+        className="mt-20 flex flex-col items-center justify-center sm:mt-40"
       >
         <svg
           preserveAspectRatio="none"
@@ -76,7 +82,8 @@ const About = () => {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0.664 0.252 558.844 15.407"
           height="16"
-          width="560"
+          width="90vw"
+          className="max-w-[560px]"
           data-type="color"
           role="presentation"
           aria-hidden="true"
@@ -100,11 +107,11 @@ const About = () => {
           alt="hemp leaves image"
         />
       </div>
-      <div className="mt-10 flex flex-col items-center justify-center text-[#23022E]">
-        <h1 className="mb-5 text-center font-[Playwrite_HU] text-3xl font-bold">
+      <div className="mt-8 flex flex-col items-center justify-center text-[#23022E] sm:mt-10">
+        <h1 className="xs:text-3xl mb-4 text-center font-[Playwrite_HU] text-2xl font-bold sm:mb-5 sm:text-3xl">
           Where to Find Us
         </h1>
-        <p className="w-[50rem] text-center font-[poppins]">
+        <p className="xs:text-base mx-auto w-[90vw] max-w-[50rem] px-2 text-center font-[poppins] text-sm">
           Discover our refreshing beverage, expertly infused with premium hemp
           extract for a unique and uplifting experience. Whether you're seeking
           relaxation or a flavorful twist, our drink combines the natural
@@ -112,7 +119,7 @@ const About = () => {
           taste that sets us apart in the world of infused beverages!
         </p>
 
-        <span className="mt-2 w-[20rem] text-center font-[poppins]">
+        <span className="xs:text-base mt-2 w-[90vw] max-w-[20rem] text-center font-[poppins] text-sm">
           42, MG Road, Near Brigade Road,
           <br />
           Bengaluru, Karnataka 560001

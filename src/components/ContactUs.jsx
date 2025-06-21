@@ -7,11 +7,9 @@ const ContactUs = () => {
   return (
     <div className="bg-[#F8CE35]">
       {/* Decorative upward divider image */}
-      <img src={upwardDivider} alt="" />
-
+      <img className="pb-3 sm:pb-3" src={upwardDivider} alt="" />
       {/* Animated slider displaying "Contact Us" */}
       <InfiniteSlider sliderText={"Contact Us"} />
-
       {/* Section title and description */}
       <div>
         <h1 className="mt-10 p-4 text-center font-[Playwrite_HU] font-bold">
@@ -22,7 +20,6 @@ const ContactUs = () => {
           Fill out the form, and we will get right back to you.
         </p>
       </div>
-
       {/* Contact form */}
       <form className="w-full p-8 lg:p-20">
         {/* Name fields in a responsive flex row */}
@@ -98,7 +95,6 @@ const ContactUs = () => {
           </button>
         </div>
       </form>
-
       {/* Decorative downward divider image */}
       <img src={downwardDivider} alt="" />
     </div>

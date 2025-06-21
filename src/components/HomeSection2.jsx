@@ -80,16 +80,18 @@ const HomeSection2 = () => {
   };
 
   // Renders a section with animated content (text and/or image)
-  const renderSection = (content, isButton = false) => (
+  const renderSection = (content, reverse = false) => (
     <div
       ref={addToSectionRefs}
-      className="flex items-center justify-center opacity-0"
+      className={`flex flex-row items-center justify-center gap-2 opacity-0 md:flex-row md:gap-0 ${
+        reverse ? "flex-row-reverse" : "flex-row"
+      } xs:flex-row xs:gap-4`}
     >
       {content.map((item, index) =>
         typeof item === "string" ? (
           <h1
             key={index}
-            className="font-[Playwrite_HU] text-5xl font-bold text-[#23022E] md:text-[7rem]"
+            className="xs:text-3xl xs:text-right xs:w-1/2 font-[Playwrite_HU] text-2xl font-bold text-[#23022E] sm:text-4xl md:text-[7rem]"
           >
             {item}
           </h1>
@@ -103,45 +105,51 @@ const HomeSection2 = () => {
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#3284E2]">
       {/* Header section */}
-      <div className="pt-8 pb-8 text-center font-[poppins] text-[#23022E]">
-        <h1 className="mb-3 font-bold">Now On Sale</h1>
-        <p className="text-lg md:text-xl">Organic Ingredients, Real Bhang</p>
+      <div className="pt-6 pb-6 text-center font-[poppins] text-[#23022E] md:pt-8 md:pb-8">
+        <h1 className="mb-2 text-lg font-bold md:mb-3 md:text-2xl">
+          Now On Sale
+        </h1>
+        <p className="xs:text-lg text-base md:text-xl">
+          Organic Ingredients, Real Bhang
+        </p>
       </div>
 
       {/* Animated sections with images and text */}
-      <div className="space-y-8 py-8 md:space-y-16">
+      <div className="space-y-6 py-6 md:space-y-16 md:py-8">
         {/* Section: Image + "Real Bhang" */}
         {renderSection([
           <img
             ref={addToImageRefs}
             key="image1"
-            className="mr-4 w-[12rem]"
+            className="xs:w-[12rem] mb-2 w-[9rem] sm:w-[14rem] md:mr-4"
             src={can1}
             alt="Hero Can"
           />,
           "Real Bhang",
         ])}
 
-        {/* Shop Sale button */}
-        <Link to={"/shop#sale"}>
-          <ReusableButton
-            text={"Sale On"}
-            iconColor={"white"}
-            styles={
-              "mr-12 mt-12 text-[#23022E] bg-[#F8CE35] hover:bg-white hover:shadow-[#F8CE35] hover:text-[#23022E] "
-            }
-            buttonSize={3}
-          />
-        </Link>
+        {/* Shop Sale button (desktop only) */}
+        <div className="xs:flex hidden justify-center">
+          <Link to={"/shop#sale"}>
+            <ReusableButton
+              text={"Sale On"}
+              iconColor={"white"}
+              styles={
+                "mt-8 text-[#23022E] bg-[#F8CE35] hover:bg-white hover:shadow-[#F8CE35] hover:text-[#23022E] "
+              }
+              buttonSize={2}
+            />
+          </Link>
+        </div>
 
-        {/* Section: "Organic" + Image */}
+        {/* Section: "Organic" + Image (reverse for mobile) */}
         {renderSection(
           [
             "Organic",
             <img
               ref={addToImageRefs}
               key="image2"
-              className="w-[12rem]"
+              className="xs:w-[12rem] mb-2 w-[9rem] sm:w-[14rem]"
               src={can2}
               alt="Hero Can"
             />,
@@ -154,12 +162,26 @@ const HomeSection2 = () => {
           <img
             ref={addToImageRefs}
             key="image3"
-            className="mr-4 w-[12rem]"
+            className="xs:w-[12rem] mb-2 w-[9rem] sm:w-[14rem] md:mr-4"
             src={can3}
             alt="Hero Can"
           />,
           "Natural",
         ])}
+
+        {/* Shop Sale button (mobile only, at bottom) */}
+        <div className="xs:hidden mt-6 flex justify-center">
+          <Link to={"/shop#sale"}>
+            <ReusableButton
+              text={"Sale On"}
+              iconColor={"white"}
+              styles={
+                "mt-2 text-[#23022E] bg-[#F8CE35] hover:bg-white hover:shadow-[#F8CE35] hover:text-[#23022E] "
+              }
+              buttonSize={2}
+            />
+          </Link>
+        </div>
       </div>
     </div>
   );
