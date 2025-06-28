@@ -168,7 +168,7 @@ const Footer = () => {
           </div>
         </div>
         {/* Copyright notice */}
-        <h1 className="mb-0 pl-2 text-center font-[poppins] text-xs font-bold text-white sm:pl-8 sm:text-base">
+        <h1 className="mb-0 pl-2 text-left font-[poppins] text-xs font-bold text-white sm:pl-8 sm:text-base">
           © 2025 by Zigh.com
         </h1>
       </footer>

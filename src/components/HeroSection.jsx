@@ -9,7 +9,7 @@ const HeroSection = () => {
     <>
       {/* Main container with background color and negative top margin for overlap effect */}
       <div className="xs:mt-0 mt-[-6.5rem] bg-[#F8CE35]">
-        <h2 className="xs:text-lg p-[8rem_1rem_4rem_1rem] text-center font-[poppins] text-base font-extrabold md:p-[10rem_2.5rem_0rem_0rem] md:text-2xl">
+        <h2 className="xs:text-lg md:text-1.5xl p-[8rem_1rem_4rem_1rem] text-center font-[poppins] text-base font-extrabold md:p-[10rem_2.5rem_0rem_0rem]">
           Craft Soft Sparkling Made with Joy and BHANG.
         </h2>
         {/* Flex container for soda can and main title */}

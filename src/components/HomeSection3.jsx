@@ -24,35 +24,31 @@ const HomeSection3 = () => {
       </h1>
 
       {/* Category buttons */}
-      <div className="mb-8 flex flex-wrap justify-center gap-4 px-2 sm:flex-row sm:gap-16">
-        <div className="flex w-full flex-row justify-center gap-4 sm:w-auto">
-          <Link to={"/shop#exotic"} className="max-w-[10rem] flex-1">
-            <ReusableButton
-              text="Exotic"
-              styles="text-white bg-[#D71919] hover:bg-[#F0F0F0] hover:text-[#D71919] hover:shadow-[#D71919] hover:border-[#D71919]"
-              iconColor="white"
-              buttonSize={2}
-            />
-          </Link>
-          <Link to={"/shope#sour"} className="max-w-[10rem] flex-1">
-            <ReusableButton
-              text="Sour"
-              styles="text-white bg-[#0869D9] hover:bg-[#F0F0F0] hover:text-[#0869D9] hover:shadow-[#0869D9] hover:border-[#0869D9]"
-              iconColor="white"
-              buttonSize={2}
-            />
-          </Link>
-        </div>
-        <div className="flex w-full flex-row justify-center gap-4 sm:w-auto">
-          <Link to={"/shop#sweet"} className="max-w-[10rem] flex-1">
-            <ReusableButton
-              text="Sweet"
-              styles="text-white bg-[#9A4C95] hover:bg-[#F0F0F0] hover:text-[#9A4C95] hover:shadow-[#9A4C95] hover:border-[#9A4C95]"
-              iconColor="white"
-              buttonSize={2}
-            />
-          </Link>
-        </div>
+      <div className="mb-8 flex flex-wrap justify-center gap-4 px-2 sm:gap-8">
+        <Link to={"/shop#exotic"} className="max-w-[10rem] flex-1 sm:flex-none">
+          <ReusableButton
+            text="Exotic"
+            styles="text-white bg-[#D71919] hover:bg-[#F0F0F0] hover:text-[#D71919] hover:shadow-[#D71919] hover:border-[#D71919]"
+            iconColor="white"
+            buttonSize={2}
+          />
+        </Link>
+        <Link to={"/shop#sour"} className="max-w-[10rem] flex-1 sm:flex-none">
+          <ReusableButton
+            text="Sour"
+            styles="text-white bg-[#0869D9] hover:bg-[#F0F0F0] hover:text-[#0869D9] hover:shadow-[#0869D9] hover:border-[#0869D9]"
+            iconColor="white"
+            buttonSize={2}
+          />
+        </Link>
+        <Link to={"/shop#sweet"} className="max-w-[10rem] flex-1 sm:flex-none">
+          <ReusableButton
+            text="Sweet"
+            styles="text-white bg-[#9A4C95] hover:bg-[#F0F0F0] hover:text-[#9A4C95] hover:shadow-[#9A4C95] hover:border-[#9A4C95]"
+            iconColor="white"
+            buttonSize={2}
+          />
+        </Link>
       </div>
 
       {/* Promotional text */}
@@ -83,7 +79,7 @@ const HomeSection3 = () => {
               <Link to={`/product/${product.id}`}>
                 <div className="h-[13rem] w-[9.5rem] rounded-2xl bg-[#FFFFFF] p-2 hover:bg-red-600 sm:h-[20rem] sm:w-[16rem] sm:p-4">
                   {/* Show "Sale" badge if product has discount */}
-                  <p className="inline-block rounded-full bg-[#0869D9] p-2 font-[Playwrite_HU] font-bold text-white">
+                  <p className="inline-block rounded-full bg-[#0869D9] p-2 font-[Playwrite_HU] text-white">
                     {product.discount > 0 ? "Sale" : ""}
                   </p>
                   {/* Product image */}
@@ -108,7 +104,7 @@ const HomeSection3 = () => {
                       ₹{product.price.toFixed(2)}
                     </span>
                   )}
-                  <span className="text-sm text-blue-600 sm:text-lg">
+                  <span className="text-sm font-bold text-blue-600 sm:text-lg">
                     ₹{discountedPrice.toFixed(2)}
                   </span>
                 </div>
